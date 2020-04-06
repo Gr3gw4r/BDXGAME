@@ -6,20 +6,18 @@ public class PhotoManager : MonoBehaviour
 {
     public float maxDistance;
 
-    public GameObject test;
-
     public Camera photo;
 
     // Start is called before the first frame update
     void Start()
     {
-        MakePhoto();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position, test.transform.position);
+
     }
 
     public void MakePhoto()
@@ -28,7 +26,6 @@ public class PhotoManager : MonoBehaviour
 
         foreach (GameObject myGhosts in ghosts)
         {
-            test = myGhosts;
             RaycastHit hit;
 
             var direction = myGhosts.transform.position - transform.position;
@@ -37,11 +34,12 @@ public class PhotoManager : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("Ghost"))
                 {
-                    Vector3 screenPoint = Camera.main.WorldToViewportPoint(myGhosts.transform.position);
+                    Vector3 screenPoint = photo.WorldToViewportPoint(myGhosts.transform.position);
                     bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
 
                     if (onScreen)
                     {
+                        hit.transform.gameObject.GetComponent<FantomeScript>().Respawn();
                         int addScore = hit.transform.gameObject.GetComponent<FantomeScript>().GetMyScore();
                         GameManager_Fantome.Instance.AddScore(addScore);
                     }

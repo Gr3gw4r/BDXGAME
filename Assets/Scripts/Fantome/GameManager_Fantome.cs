@@ -14,6 +14,7 @@ public class MGhostObject
 public class GameManager_Fantome : MonoBehaviour
 {
     public MGhostObject[] objectsToSpawnMGhost;
+    private GameObject objectToSpawn;
     public SpriteRenderer[] emptys;
 
     public float resetCD;
@@ -22,6 +23,18 @@ public class GameManager_Fantome : MonoBehaviour
     private int score = 0;
 
     public static GameManager_Fantome Instance;
+
+    public GameObject mGhost;
+    public Transform parentSpawnPointM;
+    public Transform parentSpawnPointF;
+
+    public GameObject fGhost;
+    public float CDFGhost;
+    private float CDFGhostActual = 0;
+
+    private bool MGhostInScene = false;
+
+    public GameObject ghostCamera;
 
     private void Awake()
     {
@@ -45,30 +58,75 @@ public class GameManager_Fantome : MonoBehaviour
     void Update()
     {
         CDActual += Time.deltaTime;
-
-        Debug.Log(score);
+        CDFGhostActual += Time.deltaTime;
 
         if (CDActual >= resetCD)
         {
             SetEmptys();
         }
+
+        if (CDFGhostActual >= CDFGhost)
+        {
+            SpawnFGhost();
+            CDFGhostActual = 0;
+        }
+    }
+
+    public void TakeObject(GameObject myObject)
+    {
+
     }
 
     public void SetEmptys()
     {
-        int objectToSpawn = Random.Range(0, objectsToSpawnMGhost.Length);
-
-        for (int i = 0; i < emptys.Length; i ++)
+        if (MGhostInScene == false)
         {
-            emptys[i].sprite = objectsToSpawnMGhost[objectToSpawn].myPictures[i];
-        }
+            int indexToSpawn = Random.Range(0, objectsToSpawnMGhost.Length);
+            objectToSpawn = objectsToSpawnMGhost[indexToSpawn].myObject;
 
-        CDActual = 0;
+            for (int i = 0; i < emptys.Length; i++)
+            {
+                emptys[i].sprite = objectsToSpawnMGhost[indexToSpawn].myPictures[i];
+            }
+
+            CDActual = 0;
+        }
     }
 
     public void AddScore(int newScore)
     {
         score += newScore;
+        Debug.Log(score);
+    }
 
+    public void SpawnMGhost()
+    {
+        if (MGhostInScene == false)
+        {
+            Instantiate(mGhost, parentSpawnPointM.GetChild(Random.Range(0, parentSpawnPointM.childCount)).transform.position, Quaternion.identity);
+        }
+    }
+
+    public void SpawnFGhost()
+    {
+        if (MGhostInScene == false)
+        {
+            Instantiate(fGhost, parentSpawnPointF.GetChild(Random.Range(0, parentSpawnPointF.childCount)).transform.position, Quaternion.identity);
+        }
+    }
+
+    public void setMGhostInScene(bool newMGhostInScene)
+    {
+        MGhostInScene = newMGhostInScene;
+    }
+
+    public GameObject GetObjectToSpawn()
+    {
+        return objectToSpawn;
+    }
+
+    public GameObject GetGhostCamera()
+    {
+        return ghostCamera;
     }
 }
