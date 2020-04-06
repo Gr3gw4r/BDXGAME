@@ -400,12 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15a891e771a5df459f3f08736247266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabAction:
-    actionPath: /actions/default/in/GrabGrip
-    needsReinit: 0
-  useAction:
-    actionPath: /actions/default/in/GrabPinch
-    needsReinit: 0
 --- !u!135 &404236699
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -634,40 +628,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &490474004
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &733787713
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +708,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a894ea4fe91d5bb439c2799094092b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeHand: {fileID: 0}
 --- !u!114 &733787718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,7 +721,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 5000
+  test: {fileID: 0}
   photo: {fileID: 995218452}
+--- !u!21 &738442963
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &752132184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,7 +1208,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1433243830
+--- !u!43 &1374823174
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1534,11 +1528,11 @@ PrefabInstance:
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 490474004}
+      objectReference: {fileID: 738442963}
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1433243830}
+      objectReference: {fileID: 1374823174}
     - target: {fileID: 1000014254142504, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_TagString
       value: MainCamera
@@ -1671,7 +1665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a894ea4fe91d5bb439c2799094092b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeHand: {fileID: 0}
 --- !u!114 &1745969919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1791,12 +1784,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15a891e771a5df459f3f08736247266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabAction:
-    actionPath: /actions/default/in/GrabGrip
-    needsReinit: 0
-  useAction:
-    actionPath: /actions/default/in/GrabPinch
-    needsReinit: 0
 --- !u!135 &1811331273
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1896,12 +1883,6 @@ MonoBehaviour:
   - {fileID: 1063691234}
   - {fileID: 104354897}
   resetCD: 15
-  mGhost: {fileID: 7708775960830203340, guid: 32f545cd011120b419749bf6476fe4ef, type: 3}
-  parentSpawnPointM: {fileID: 1346493338}
-  parentSpawnPointF: {fileID: 752132185}
-  fGhost: {fileID: 6030788384341625840, guid: b5e1d460adba6894bb0488e62427f123, type: 3}
-  CDFGhost: 10
-  ghostCamera: {fileID: 995218449}
 --- !u!1 &1958682946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,7 +1929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a894ea4fe91d5bb439c2799094092b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeHand: {fileID: 0}
 --- !u!54 &1958682949
 Rigidbody:
   m_ObjectHideFlags: 0
