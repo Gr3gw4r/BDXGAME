@@ -13,6 +13,9 @@ public class MGhostObject
 
 public class GameManager_Fantome : MonoBehaviour
 {
+    public float time;
+    private float timeActual;
+
     public MGhostObject[] objectsToSpawnMGhost;
     private GameObject objectToSpawn;
     public SpriteRenderer[] emptys;
@@ -57,8 +60,14 @@ public class GameManager_Fantome : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeActual += Time.deltaTime;
         CDActual += Time.deltaTime;
         CDFGhostActual += Time.deltaTime;
+
+        if (timeActual >= time)
+        {
+            Debug.Log("fin du mini-jeu");
+        }
 
         if (CDActual >= resetCD)
         {
