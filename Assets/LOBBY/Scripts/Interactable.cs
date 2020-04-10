@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
+public enum gamemodes { Sorciere, Fantome, LoupGarou};
+
 public class Interactable : MonoBehaviour
 {
+    public gamemodes myGamemode;
     public SteamVR_Action_Boolean grabAction = null;
     public SteamVR_Action_Boolean useAction = null;
 
@@ -13,6 +16,7 @@ public class Interactable : MonoBehaviour
 
     private PropsInteractable currentInteractable = null;
     private List<PropsInteractable> contactInteractables = new List<PropsInteractable>();
+
     // Start is called before the first frame update
     void Start()
     {
