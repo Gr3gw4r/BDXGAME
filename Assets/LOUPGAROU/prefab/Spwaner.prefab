@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &834156803744281304
+--- !u!1 &4538461171605428403
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7279521893342385464}
-  - component: {fileID: 8968847669673456587}
-  - component: {fileID: 1647806762697755571}
-  - component: {fileID: 7807911043617789010}
-  - component: {fileID: 573555596060751128}
+  - component: {fileID: 5315939672784294608}
+  - component: {fileID: 4899401855434277003}
+  - component: {fileID: 8981509611858286193}
+  - component: {fileID: 6574482843837581860}
+  - component: {fileID: 7021166633694876123}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Spwaner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7279521893342385464
+--- !u!4 &5315939672784294608
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834156803744281304}
+  m_GameObject: {fileID: 4538461171605428403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.44, y: 1.07, z: -0.57}
+  m_LocalPosition: {x: -1.71, y: -6.72017, z: 11.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8968847669673456587
+--- !u!33 &4899401855434277003
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834156803744281304}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1647806762697755571
+  m_GameObject: {fileID: 4538461171605428403}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &8981509611858286193
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834156803744281304}
+  m_GameObject: {fileID: 4538461171605428403}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9fda952bebcd7ce4786b860657ff7b1c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,28 +80,40 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &7807911043617789010
+--- !u!135 &6574482843837581860
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834156803744281304}
+  m_GameObject: {fileID: 4538461171605428403}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.27
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &573555596060751128
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7021166633694876123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834156803744281304}
+  m_GameObject: {fileID: 4538461171605428403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b434c689c3c624439c51dcd716b486f, type: 3}
+  m_Script: {fileID: 11500000, guid: ac90e81ab9c0c1547906e8171622dad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waves:
+  - name: enemy01
+    enemy: {fileID: 8940728821885571795, guid: 1341554610438014f93c6a182de07fce, type: 3}
+    count: 0
+    rate: 0
+  - name: enemy02
+    enemy: {fileID: 8940728821885571795, guid: 1341554610438014f93c6a182de07fce, type: 3}
+    count: 0
+    rate: 0
+  spawnPoints: []
+  timeBetweenWaves: 5
+  waveCountdown: 0
