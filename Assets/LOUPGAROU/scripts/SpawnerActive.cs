@@ -10,11 +10,11 @@ public class SpawnerActive : MonoBehaviour
     {
         if (other.gameObject.CompareTag("WaveSpawn"))
         {
-            GameObject == true; 
+            spawner.SetActive(true);      
         }
         else
         {
-
+            spawner.SetActive(false);
         }
     }
 }
