@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7021166633694876123}
   m_Layer: 0
   m_Name: Spwaner
-  m_TagString: Untagged
+  m_TagString: WaveSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
