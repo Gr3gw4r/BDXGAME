@@ -8,6 +8,8 @@ TagManager:
   - Interactable
   - Enemy
   - WaveSpawn
+  - Astral
+  - Shield
   layers:
   - Default
   - TransparentFX
