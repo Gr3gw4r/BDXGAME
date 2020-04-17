@@ -5,8 +5,9 @@ using UnityEngine;
 public class SpawnerActive : MonoBehaviour
 {
     public GameObject spawner;
+    public GameObject player;
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -17,5 +18,10 @@ public class SpawnerActive : MonoBehaviour
         {
             spawner.SetActive(false);
         }
+    }*/
+
+    public void SpawnActivate()
+    {
+        
     }
 }
