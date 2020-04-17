@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody rb;
     private Vector3 movement;
+    public int Score;
 
     // Start is called before the first frame update
     void Start()

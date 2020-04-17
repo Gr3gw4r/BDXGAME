@@ -8,9 +8,10 @@ public class SpawnerActive : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("WaveSpawn"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            spawner.SetActive(true);      
+            spawner.SetActive(true);
+            Debug.Log("good");
         }
         else
         {
