@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Tue : MonoBehaviour
 {
+    public GameObject Enemy;
+
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);
+        Destroy(Enemy);
     }
 }
