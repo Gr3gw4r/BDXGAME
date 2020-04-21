@@ -10,6 +10,7 @@ TagManager:
   - WaveSpawn
   - Astral
   - Shield
+  - SorciereEnnemies
   layers:
   - Default
   - TransparentFX

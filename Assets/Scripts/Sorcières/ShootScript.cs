@@ -18,4 +18,12 @@ public class ShootScript : MonoBehaviour
     {
         rb.MovePosition(transform.position + transform.forward * speed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Astral"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

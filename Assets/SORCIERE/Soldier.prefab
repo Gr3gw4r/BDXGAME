@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2831643288755633246}
   m_Layer: 0
   m_Name: Soldier
-  m_TagString: Astral
+  m_TagString: SorciereEnnemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
