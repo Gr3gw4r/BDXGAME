@@ -12,20 +12,21 @@ public class GameManager_Sorciere : MonoBehaviour
     private float timeActual;
 
     public GameObject shoot;
-    public float CD;
+    public float CDsoldier;
 
     public int shootStock;
     private int shootStockActual;
 
     private bool isDefending = false;
 
-    public float CDSpawn;
-    private float CDSpawnActual = 0;
+    public float CDSpawnSoldier;
+    private float CDSpawnActualSoldier = 0;
+    public float difficultyIndex;
 
     public GameObject astral;
 
     public GameObject soldier;
-    public Transform parentSpawn;
+    public Transform parentSpawnSoldier;
 
     private void Awake()
     {
@@ -50,20 +51,20 @@ public class GameManager_Sorciere : MonoBehaviour
     void Update()
     {
         timeActual -= Time.deltaTime;
-        CDSpawnActual += Time.deltaTime;
+        CDSpawnActualSoldier += Time.deltaTime;
 
-        if (CDSpawnActual >= CDSpawn)
+        if (CDSpawnActualSoldier >= CDSpawnSoldier)
         {
-            SpawnEnnemies(soldier);
-            CDSpawnActual = 0;
+            SpawnEnnemies(soldier, parentSpawnSoldier);
+            CDSpawnSoldier = CDSpawnSoldier - (CDSpawnSoldier * (difficultyIndex / 100));
+            Debug.Log(CDSpawnSoldier);
+            CDSpawnActualSoldier = 0;
         }
-
-        Debug.Log(timeActual);
     }
 
-    private void SpawnEnnemies(GameObject newEnnemy)
+    private void SpawnEnnemies(GameObject newEnnemy, Transform newTransformParent)
     {
-        GameObject EnnemySpawned = Instantiate(newEnnemy, parentSpawn.GetChild(Random.Range(0, parentSpawn.childCount)).transform.position, Quaternion.identity);
+        GameObject EnnemySpawned = Instantiate(newEnnemy, newTransformParent.GetChild(Random.Range(0, newTransformParent.childCount)).transform.position, Quaternion.identity);
     }
 
     public GameObject GetShoot()
@@ -73,7 +74,7 @@ public class GameManager_Sorciere : MonoBehaviour
 
     public float GetCD()
     {
-        return CD;
+        return CDsoldier;
     }
 
     public void SetBulletNumber(int addValue)
