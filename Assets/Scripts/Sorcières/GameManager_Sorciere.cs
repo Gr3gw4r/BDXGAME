@@ -23,10 +23,22 @@ public class GameManager_Sorciere : MonoBehaviour
     private float CDSpawnActualSoldier = 0;
     public float difficultyIndex;
 
+    public float CDSpawnPriest;
+    private float CDSpawnPriestActual = 0;
+
     public GameObject astral;
 
     public GameObject soldier;
     public Transform parentSpawnSoldier;
+
+    public GameObject priest;
+    public Transform parentSpawnPriest;
+
+    private int priestNumber;
+    public float timePaused;
+    private float timePausedActual = 0;
+    private bool isPaused = false;
+    private bool pauseAllowed = false;
 
     private void Awake()
     {
@@ -52,19 +64,69 @@ public class GameManager_Sorciere : MonoBehaviour
     {
         timeActual -= Time.deltaTime;
         CDSpawnActualSoldier += Time.deltaTime;
+        CDSpawnPriestActual += Time.deltaTime;
+
+        if ((priestNumber <= 0) && (pauseAllowed == true))
+        {
+            isPaused = true;
+            timePausedActual = 0;
+            pauseAllowed = false;
+        }
+
+        if (isPaused)
+        {
+            timePausedActual += Time.deltaTime;
+
+            if (timePausedActual >= timePaused)
+            {
+                isPaused = false;
+                pauseAllowed = true;
+            }
+        }
+
+        if (timeActual <= 0)
+        {
+            Debug.Log("ah yes");
+        }
 
         if (CDSpawnActualSoldier >= CDSpawnSoldier)
         {
             SpawnEnnemies(soldier, parentSpawnSoldier);
             CDSpawnSoldier = CDSpawnSoldier - (CDSpawnSoldier * (difficultyIndex / 100));
-            Debug.Log(CDSpawnSoldier);
             CDSpawnActualSoldier = 0;
+        }
+
+        if (CDSpawnPriestActual >= CDSpawnPriest)
+        {
+            SpawnEnnemies(priest, parentSpawnPriest);
+            CDSpawnPriest = CDSpawnPriest - (CDSpawnPriest * (difficultyIndex / 100));
+            Debug.Log(CDSpawnPriest);
+            CDSpawnPriestActual = 0;
         }
     }
 
     private void SpawnEnnemies(GameObject newEnnemy, Transform newTransformParent)
     {
-        GameObject EnnemySpawned = Instantiate(newEnnemy, newTransformParent.GetChild(Random.Range(0, newTransformParent.childCount)).transform.position, Quaternion.identity);
+        List<Transform> spawnPointTransformList = new List<Transform>();
+        bool spawnIsPossible = false;
+
+        for (int i = 0; i < newTransformParent.childCount; i ++)
+        {
+            if (newTransformParent.GetChild(i).GetComponent<SpawnPointSorciereScript>().GetFreeState())
+            {
+                spawnPointTransformList.Add(newTransformParent.GetChild(i));
+                spawnIsPossible = true;
+            }
+        }
+
+        Debug.Log(spawnIsPossible);
+
+        if (spawnIsPossible)
+        {
+            Transform mySpawnPoint = spawnPointTransformList[Random.Range(0,spawnPointTransformList.Count)];
+            GameObject EnnemySpawned = Instantiate(newEnnemy, mySpawnPoint.position, Quaternion.identity);
+            EnnemySpawned.GetComponent<EnnemySorciereScript>().SetMySpawnPoint(mySpawnPoint);
+        }
     }
 
     public GameObject GetShoot()
@@ -105,5 +167,10 @@ public class GameManager_Sorciere : MonoBehaviour
     public void LooseTime(float addTimeValue)
     {
         timeActual -= addTimeValue;
+    }
+
+    public void SetPriestNumber(int AddValue)
+    {
+        priestNumber += AddValue;
     }
 }
