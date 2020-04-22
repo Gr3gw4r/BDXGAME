@@ -40,6 +40,15 @@ public class GameManager_Sorciere : MonoBehaviour
     private bool isPaused = false;
     private bool pauseAllowed = false;
 
+    public GameObject bossObject;
+
+    public float minTimeToSpawnBoss;
+    public float maxTimeToSpawnBoss;
+    private float timeToSpawnBoss;
+    private bool bossIsSpawned = false;
+
+    private float myScore = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -57,6 +66,8 @@ public class GameManager_Sorciere : MonoBehaviour
     {
         shootStockActual = shootStock;
         timeActual = timer;
+
+        timeToSpawnBoss = Random.Range(minTimeToSpawnBoss, maxTimeToSpawnBoss);
     }
 
     // Update is called once per frame
@@ -65,12 +76,19 @@ public class GameManager_Sorciere : MonoBehaviour
         timeActual -= Time.deltaTime;
         CDSpawnActualSoldier += Time.deltaTime;
         CDSpawnPriestActual += Time.deltaTime;
+        timeToSpawnBoss -= Time.deltaTime;
 
         if ((priestNumber <= 0) && (pauseAllowed == true))
         {
             isPaused = true;
             timePausedActual = 0;
             pauseAllowed = false;
+        }
+
+        if ((timeToSpawnBoss <= 0) && (bossIsSpawned == false))
+        {
+            SpawnEnnemies(bossObject, parentSpawnSoldier);
+            bossIsSpawned = true;
         }
 
         if (isPaused)
@@ -172,5 +190,10 @@ public class GameManager_Sorciere : MonoBehaviour
     public void SetPriestNumber(int AddValue)
     {
         priestNumber += AddValue;
+    }
+
+    public void GetScore(float addValue)
+    {
+        myScore = addValue;
     }
 }

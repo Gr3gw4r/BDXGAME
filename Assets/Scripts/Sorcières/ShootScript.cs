@@ -6,6 +6,7 @@ public class ShootScript : MonoBehaviour
 {
     private Rigidbody rb;
     public float speed;
+    public float myDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +18,14 @@ public class ShootScript : MonoBehaviour
     void Update()
     {
         rb.MovePosition(transform.position + transform.forward * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("SorciereEnnemies"))
+        {
+            Debug.Log("touché");
+            other.GetComponent<EnnemySorciereScript>().LooseLife(myDamage);
+        }
     }
 }
