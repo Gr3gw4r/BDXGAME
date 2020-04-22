@@ -11,6 +11,7 @@ TagManager:
   - Astral
   - Shield
   - SorciereEnnemies
+  - Heal
   layers:
   - Default
   - TransparentFX
