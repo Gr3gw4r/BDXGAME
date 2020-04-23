@@ -8,6 +8,9 @@ public class Tue : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(Enemy);
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
