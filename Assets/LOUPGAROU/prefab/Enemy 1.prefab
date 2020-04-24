@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4431329744520386487, guid: 6fb9edcd3c1b6cb459232cd005a8f5ba, type: 3}
-  moveSpeed: 5
+  moveSpeed: 3
   Score: 0
   life: 10
   shield: {fileID: 8598331616755666406}
