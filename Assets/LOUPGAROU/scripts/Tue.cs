@@ -11,7 +11,7 @@ public class Tue : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnnemySorciereScript>().LooseLife(Damage);
+            other.GetComponent<Enemy>().LooseLife(Damage);
         }
     }
 
