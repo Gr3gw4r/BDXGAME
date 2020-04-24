@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
     private void FixedUpdate()
     {
         moveCharacter(movement);
@@ -44,7 +45,8 @@ public class Enemy : MonoBehaviour
 
     void moveCharacter(Vector3 direction)
     {
-        rb.MovePosition((Vector3)transform.position + (direction * moveSpeed * Time.deltaTime));
+        Vector3 myDirection = transform.position + (direction * moveSpeed * Time.deltaTime);
+        rb.MovePosition(new Vector3(myDirection.x, transform.position.y, myDirection.z));
     }
 
     public void LooseLife(float addValue)
