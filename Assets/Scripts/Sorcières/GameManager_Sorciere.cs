@@ -137,8 +137,6 @@ public class GameManager_Sorciere : MonoBehaviour
             }
         }
 
-        Debug.Log(spawnIsPossible);
-
         if (spawnIsPossible)
         {
             Transform mySpawnPoint = spawnPointTransformList[Random.Range(0,spawnPointTransformList.Count)];
@@ -190,6 +188,19 @@ public class GameManager_Sorciere : MonoBehaviour
     public void SetPriestNumber(int AddValue)
     {
         priestNumber += AddValue;
+    }
+
+    public bool GetPriestFree()
+    {
+        for (int i = 0; i < parentSpawnSoldier.childCount; i++)
+        {
+            if (parentSpawnSoldier.GetChild(i).GetComponent<SpawnPointSorciereScript>().GetFreeState() == false)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public void GetScore(float addValue)

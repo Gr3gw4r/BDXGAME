@@ -9,6 +9,9 @@ public class EnnemySorciereScript : MonoBehaviour
 
     public float life;
     private float lifeActual;
+    private bool isImmune = false;
+
+    public bool isPriest;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +42,28 @@ public class EnnemySorciereScript : MonoBehaviour
 
     public void LooseLife(float addValue)
     {
-        life -= addValue;
+        if (isPriest == true)
+        {
+            if (GetImmune() == false)
+            {
+                life -= addValue;
+            }
+        }
+        else
+        {
+            life -= addValue;
+        }
+    }
+
+    public bool GetImmune()
+    {
+        if (GameManager_Sorciere.Instance.GetPriestFree() == false)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
