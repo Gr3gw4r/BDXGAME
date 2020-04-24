@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public int Score;
     public float life;
     private float lifeActual;
+    public GameObject shield;
 
 
     // Start is called before the first frame update
@@ -27,6 +28,10 @@ public class Enemy : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         direction.Normalize();
         movement = direction;
+        if(life <= 5)
+        {
+            Destroy(shield.gameObject);
+        }
         if (life <= 0)
         {
             Destroy(this.gameObject);
