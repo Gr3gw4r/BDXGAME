@@ -15,7 +15,7 @@ public class PropsFantôme : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((GetComponent<PropsInteractable>().activeHand != null) && (isTake == false))
+        /*if ((GetComponent<PropsInteractable>().activeHand != null) && (isTake == false))
         {
             if (this.gameObject == GameManager_Fantome.Instance.GetObjectToSpawn())
             {
@@ -32,6 +32,6 @@ public class PropsFantôme : MonoBehaviour
         if (GetComponent<PropsInteractable>().activeHand == null)
         {
             isTake = false;
-        }
+        }*/
     }
 }

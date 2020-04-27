@@ -22,6 +22,8 @@ public class PhotoManager : MonoBehaviour
 
     public void MakePhoto()
     {
+        Debug.Log("noe");
+
         GameObject[] ghosts = GameObject.FindGameObjectsWithTag("Ghost");
 
         foreach (GameObject myGhosts in ghosts)

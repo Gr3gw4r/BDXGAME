@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public class MGhostObject
@@ -38,6 +39,9 @@ public class GameManager_Fantome : MonoBehaviour
     private bool MGhostInScene = false;
 
     public GameObject ghostCamera;
+
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI TimeText;
 
     private void Awake()
     {
@@ -79,6 +83,8 @@ public class GameManager_Fantome : MonoBehaviour
             SpawnFGhost();
             CDFGhostActual = 0;
         }
+
+        ShowStats();
     }
 
     public void TakeObject(GameObject myObject)
@@ -95,6 +101,7 @@ public class GameManager_Fantome : MonoBehaviour
 
             for (int i = 0; i < emptys.Length; i++)
             {
+                Debug.Log(emptys.Length);
                 emptys[i].sprite = objectsToSpawnMGhost[indexToSpawn].myPictures[i];
             }
 
@@ -137,5 +144,11 @@ public class GameManager_Fantome : MonoBehaviour
     public GameObject GetGhostCamera()
     {
         return ghostCamera;
+    }
+
+    private void ShowStats()
+    {
+        scoreText.text = ("Score") + score.ToString("0");
+        TimeText.text = ("Time") + timeActual.ToString("0");
     }
 }
