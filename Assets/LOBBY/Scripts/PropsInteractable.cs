@@ -7,6 +7,7 @@ public class PropsInteractable : MonoBehaviour
 {
     [HideInInspector]
     //public Interactable activeHand = null;
+
     // Start is called before the first frame update
     void Start()
     {

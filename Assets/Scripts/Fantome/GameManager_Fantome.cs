@@ -101,11 +101,18 @@ public class GameManager_Fantome : MonoBehaviour
 
             for (int i = 0; i < emptys.Length; i++)
             {
-                Debug.Log(emptys.Length);
                 emptys[i].sprite = objectsToSpawnMGhost[indexToSpawn].myPictures[i];
             }
 
             CDActual = 0;
+        }
+    }
+
+    public void CheckGhostObject(GameObject myGameObject)
+    {
+        if (myGameObject == objectToSpawn)
+        {
+            SpawnMGhost();
         }
     }
 

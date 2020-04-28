@@ -49,6 +49,10 @@ namespace Valve.VR.InteractionSystem
                 {
                     hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>().MakePhoto();
                 }
+                else if (hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() == null)
+                {
+                    GameManager_Fantome.Instance.CheckGhostObject(hand.currentAttachedObject.gameObject);
+                }
             }
         }
 
