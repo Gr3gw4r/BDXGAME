@@ -125,6 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   myDamage: 1
+  destroyedParticles: {fileID: 2416247245196498523, guid: 90940aeaf6437224f854e5995c48dc71,
+    type: 3}
 --- !u!1 &6264296229400507500
 GameObject:
   m_ObjectHideFlags: 0

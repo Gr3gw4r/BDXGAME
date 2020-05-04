@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  myDamage: 0
 --- !u!114 &1676367164565626021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,3 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cf48bd242615f4c867540fce8d36a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyedParticles: {fileID: 2416247245196498523, guid: 90940aeaf6437224f854e5995c48dc71,
+    type: 3}
+  damagedParticles: {fileID: 2359991293525323090, guid: 35b02d552ce4aa14ea8c9b2cc83cb8b7,
+    type: 3}

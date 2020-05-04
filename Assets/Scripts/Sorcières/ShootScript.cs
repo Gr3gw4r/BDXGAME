@@ -24,8 +24,8 @@ public class ShootScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("SorciereEnnemies"))
         {
-            Debug.Log("touché");
             other.GetComponent<EnnemySorciereScript>().LooseLife(myDamage);
+            Destroy(this.gameObject);
         }
     }
 }

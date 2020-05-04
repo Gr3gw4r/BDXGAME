@@ -22,6 +22,8 @@ public class SorciereShoot : MonoBehaviour
     public GameObject shield;
     private bool isDefending = false;
 
+    public Transform headVR;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,10 +56,7 @@ public class SorciereShoot : MonoBehaviour
 
             if (shootStockActual > 0)
             {
-                if (isDefending == false)
-                {
-                    Shoot();
-                }
+                 Shoot();
             }
         }
 

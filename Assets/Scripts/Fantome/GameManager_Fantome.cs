@@ -43,6 +43,8 @@ public class GameManager_Fantome : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI TimeText;
 
+    public GameObject goodObjectParticles;
+
     private void Awake()
     {
         if (Instance == null)
@@ -112,7 +114,12 @@ public class GameManager_Fantome : MonoBehaviour
     {
         if (myGameObject == objectToSpawn)
         {
+            Instantiate(goodObjectParticles, myGameObject.transform.position, Quaternion.identity);
             SpawnMGhost();
+        }
+        else if (myGameObject != objectToSpawn)
+        {
+            SetEmptys();
         }
     }
 
@@ -155,7 +162,7 @@ public class GameManager_Fantome : MonoBehaviour
 
     private void ShowStats()
     {
-        scoreText.text = ("Score") + score.ToString("0");
-        TimeText.text = ("Time") + timeActual.ToString("0");
+        scoreText.text = ("Score : ") + score.ToString("0");
+        TimeText.text = ("Time : ") + timeActual.ToString("0");
     }
 }

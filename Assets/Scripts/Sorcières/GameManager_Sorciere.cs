@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum spells { Attack, Defend, TimeSlow}
 
@@ -34,11 +35,12 @@ public class GameManager_Sorciere : MonoBehaviour
     public GameObject priest;
     public Transform parentSpawnPriest;
 
-    private int priestNumber;
+    private int priestNumber = 0;
     public float timePaused;
     private float timePausedActual = 0;
     private bool isPaused = false;
-    private bool pauseAllowed = false;
+    private bool pauseAllowed = true;
+    private bool firstPriest = false;
 
     public GameObject bossObject;
 
@@ -48,6 +50,9 @@ public class GameManager_Sorciere : MonoBehaviour
     private bool bossIsSpawned = false;
 
     private float myScore = 0;
+
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI scoreText;
 
     private void Awake()
     {
@@ -68,22 +73,17 @@ public class GameManager_Sorciere : MonoBehaviour
         timeActual = timer;
 
         timeToSpawnBoss = Random.Range(minTimeToSpawnBoss, maxTimeToSpawnBoss);
+
+        ShowTime();
+        ShowScore();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeActual -= Time.deltaTime;
         CDSpawnActualSoldier += Time.deltaTime;
         CDSpawnPriestActual += Time.deltaTime;
         timeToSpawnBoss -= Time.deltaTime;
-
-        if ((priestNumber <= 0) && (pauseAllowed == true))
-        {
-            isPaused = true;
-            timePausedActual = 0;
-            pauseAllowed = false;
-        }
 
         if ((timeToSpawnBoss <= 0) && (bossIsSpawned == false))
         {
@@ -102,9 +102,15 @@ public class GameManager_Sorciere : MonoBehaviour
             }
         }
 
+        if (isPaused == false)
+        {
+            timeActual -= Time.deltaTime;
+            ShowTime();
+        }
+
         if (timeActual <= 0)
         {
-            Debug.Log("ah yes");
+
         }
 
         if (CDSpawnActualSoldier >= CDSpawnSoldier)
@@ -118,8 +124,16 @@ public class GameManager_Sorciere : MonoBehaviour
         {
             SpawnEnnemies(priest, parentSpawnPriest);
             CDSpawnPriest = CDSpawnPriest - (CDSpawnPriest * (difficultyIndex / 100));
-            Debug.Log(CDSpawnPriest);
             CDSpawnPriestActual = 0;
+        }
+
+        if (isPaused)
+        {
+            timeText.color = Color.blue;
+        }
+        else
+        {
+            timeText.color = Color.white;
         }
     }
 
@@ -183,11 +197,20 @@ public class GameManager_Sorciere : MonoBehaviour
     public void LooseTime(float addTimeValue)
     {
         timeActual -= addTimeValue;
+
+        ShowTime();
     }
 
     public void SetPriestNumber(int AddValue)
     {
         priestNumber += AddValue;
+
+        if ((priestNumber <= 0) && (pauseAllowed == true))
+        {
+            isPaused = true;
+            timePausedActual = 0;
+            pauseAllowed = false;
+        }
     }
 
     public bool GetPriestFree()
@@ -205,6 +228,17 @@ public class GameManager_Sorciere : MonoBehaviour
 
     public void GetScore(float addValue)
     {
-        myScore = addValue;
+        myScore += addValue;
+        ShowScore();
+    }
+
+    private void ShowTime()
+    {
+        timeText.text = ("Time : ") + timeActual.ToString("0");
+    }
+
+    private void ShowScore()
+    {
+        scoreText.text = ("Score : ") + myScore.ToString("0");
     }
 }

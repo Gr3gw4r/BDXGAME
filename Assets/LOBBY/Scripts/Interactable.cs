@@ -19,7 +19,7 @@ namespace Valve.VR.InteractionSystem
         private PropsInteractable currentInteractable = null;
         private List<PropsInteractable> contactInteractables = new List<PropsInteractable>();
 
-        public Hand hand;
+        private Hand hand;
 
         // Start is called before the first frame update
         void Start()
@@ -49,7 +49,7 @@ namespace Valve.VR.InteractionSystem
                 {
                     hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>().MakePhoto();
                 }
-                else if (hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() == null)
+                else if (hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() == null && myGamemode == gamemodes.Fantome)
                 {
                     GameManager_Fantome.Instance.CheckGhostObject(hand.currentAttachedObject.gameObject);
                 }

@@ -23,7 +23,7 @@ public class FantomeScript : MonoBehaviour
 
         if (lifeTimeActual <= 0)
         {
-            Respawn();
+            Destroy(this.gameObject);
         }
     }
 
@@ -34,7 +34,6 @@ public class FantomeScript : MonoBehaviour
 
     public void Respawn()
     {
-        Debug.Log("salut");
         Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }

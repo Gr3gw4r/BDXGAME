@@ -12,11 +12,17 @@ public class EnnemySorciereScript : MonoBehaviour
     private bool isImmune = false;
 
     public bool isPriest;
+    public GameObject shieldParticles;
 
     // Start is called before the first frame update
     void Start()
     {
         lifeActual = life;
+
+        if (isPriest == true)
+        {
+            GameManager_Sorciere.Instance.SetPriestNumber(1);
+        }
     }
 
     // Update is called once per frame
@@ -24,7 +30,21 @@ public class EnnemySorciereScript : MonoBehaviour
     {
         if (life <= 0)
         {
+            if (isPriest == true)
+            {
+                GameManager_Sorciere.Instance.SetPriestNumber(-1);
+            }
+
             Destroy(this.gameObject);
+        }
+
+        if (GetImmune() == true)
+        {
+            shieldParticles.SetActive(true);
+        }
+        else
+        {
+            shieldParticles.SetActive(false);
         }
     }
 

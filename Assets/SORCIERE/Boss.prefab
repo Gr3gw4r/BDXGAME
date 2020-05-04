@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4256301605458090344}
   - component: {fileID: 4856545525048413271}
   - component: {fileID: 4964095451429680382}
+  - component: {fileID: -1602317376366390890}
   m_Layer: 0
   m_Name: Boss
   m_TagString: SorciereEnnemies
@@ -91,7 +92,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1ba09b624aed6ff49ac5062c6060df99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,3 +157,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 50
   life: 1
+  isPriest: 0
+  shieldParticles: {fileID: 0}
+--- !u!114 &-1602317376366390890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660280258147192113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f780d4821401f45b22811317e93bd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 5

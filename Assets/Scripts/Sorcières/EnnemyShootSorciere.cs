@@ -6,6 +6,10 @@ public class EnnemyShootSorciere : MonoBehaviour
 {
     private float myDamage = 1;
 
+    public GameObject destroyedParticles;
+
+    public GameObject damagedParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +32,13 @@ public class EnnemyShootSorciere : MonoBehaviour
         if (other.gameObject.CompareTag("Astral"))
         {
             GameManager_Sorciere.Instance.LooseTime(myDamage);
+            Instantiate(damagedParticles, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 
         if (other.gameObject.CompareTag("Shield"))
         {
+            Instantiate(destroyedParticles, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
