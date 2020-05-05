@@ -127,3 +127,4 @@ MonoBehaviour:
   moveSpeed: 5
   Score: 0
   life: 5
+  shield: {fileID: 0}
