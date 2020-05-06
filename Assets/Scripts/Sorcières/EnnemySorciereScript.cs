@@ -28,6 +28,7 @@ public class EnnemySorciereScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.LookAt(new Vector3(GameManager_Sorciere.Instance.GetAstral().transform.position.x, transform.position.y, GameManager_Sorciere.Instance.GetAstral().transform.position.z));
         if (life <= 0)
         {
             if (isPriest == true)
