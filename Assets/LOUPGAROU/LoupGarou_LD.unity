@@ -12803,6 +12803,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
         type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
       propertyPath: waves.Array.data[0].enemy
       value: 
       objectReference: {fileID: 1917744556}
@@ -26828,7 +26833,7 @@ PrefabInstance:
         type: 3}
       propertyPath: waves.Array.data[0].enemy
       value: 
-      objectReference: {fileID: 1917744556}
+      objectReference: {fileID: 1253680691}
     - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
         type: 3}
       propertyPath: waves.Array.data[1].enemy
