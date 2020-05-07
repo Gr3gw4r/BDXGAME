@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heal : MonoBehaviour
+public class Jambon : MonoBehaviour
 {
     public GameObject jambon;
 
@@ -16,14 +16,5 @@ public class Heal : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Heal"))
-        {
-            Debug.Log("Soin");
-        }
-        Destroy(jambon);
     }
 }
