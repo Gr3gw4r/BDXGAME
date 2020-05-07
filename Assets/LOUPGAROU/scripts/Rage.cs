@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Rage : MonoBehaviour
 {
+
+    public GameObject potion;
+
     // Start is called before the first frame update
     void Start()
     {
