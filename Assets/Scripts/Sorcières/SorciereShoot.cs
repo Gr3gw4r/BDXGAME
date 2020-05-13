@@ -10,6 +10,7 @@ public class SorciereShoot : MonoBehaviour
 
     public SteamVR_Action_Boolean useAction = null;
     public SteamVR_Action_Boolean shieldKey = null;
+    public SteamVR_Action_Boolean reloadKey = null;
     private GameObject bullet;
     private SteamVR_Behaviour_Pose pose;
 
@@ -21,6 +22,8 @@ public class SorciereShoot : MonoBehaviour
 
     public GameObject shield;
     private bool isDefending = false;
+
+    public GameObject reloadPattern;
 
     public Transform headVR;
 
@@ -60,17 +63,23 @@ public class SorciereShoot : MonoBehaviour
             }
         }
 
+        if ((reloadKey.GetLastStateDown(pose.inputSource)) && (isDefending == false))
+        {
+            reloadPattern.SetActive(true);
+        }
+
         if ((shieldKey.GetLastStateDown(pose.inputSource)) && (GameManager_Sorciere.Instance.GetDefending() == false))
         {
             shield.SetActive(true);
             isDefending = true;
             GameManager_Sorciere.Instance.SetDefending(true);
         }
-        else if (shieldKey.GetLastStateUp(pose.inputSource))
+
+        if (shieldKey.GetLastStateUp(pose.inputSource) && (isDefending == true))
         {
             shield.SetActive(false);
-            isDefending = false;
             GameManager_Sorciere.Instance.SetDefending(false);
+            isDefending = false;
         }
     }
 

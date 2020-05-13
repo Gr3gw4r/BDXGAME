@@ -12,6 +12,7 @@ TagManager:
   - Shield
   - SorciereEnnemies
   - Heal
+  - ReloadPoint
   layers:
   - Default
   - TransparentFX
