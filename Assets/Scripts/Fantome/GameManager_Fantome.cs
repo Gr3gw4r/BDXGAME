@@ -170,6 +170,6 @@ public class GameManager_Fantome : MonoBehaviour
     private void ShowStats()
     {
         scoreText.text = ("Score : ") + score.ToString("0");
-        TimeText.text = ("Time : ") + timeActual.ToString("0");
+        TimeText.text = ((timeActual/time)*100).ToString("0") + ("%");
     }
 }
