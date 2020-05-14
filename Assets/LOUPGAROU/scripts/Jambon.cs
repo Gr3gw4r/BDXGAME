@@ -22,9 +22,9 @@ public class Jambon : MonoBehaviour
     {
         if (other.CompareTag("PlayerHead"))
         {
-
             GetComponent<Timer>().Heal();
             Debug.Log("+10sec");
+            Destroy(jambon.gameObject);
         }
     }
 }
