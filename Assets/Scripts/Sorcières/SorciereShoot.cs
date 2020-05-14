@@ -24,8 +24,17 @@ public class SorciereShoot : MonoBehaviour
     private bool isDefending = false;
 
     public GameObject reloadPattern;
+    public GameObject reloadParticles;
 
     public Transform headVR;
+
+    public bool canReload;
+    public Transform reloadSignSpawnPoint;
+    private GameObject reloadActualObject;
+
+    public float CDReload;
+    private float CDReloadActual;
+    private bool isReloadingReload = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +46,8 @@ public class SorciereShoot : MonoBehaviour
         shootStockActual = GameManager_Sorciere.Instance.GetBulletNumber();
 
         timeActual = Timer;
+
+        CDReloadActual = CDReload;
     }
 
     // Update is called once per frame
@@ -63,9 +74,38 @@ public class SorciereShoot : MonoBehaviour
             }
         }
 
-        if ((reloadKey.GetLastStateDown(pose.inputSource)) && (isDefending == false))
+        if (isReloadingReload == true)
         {
-            reloadPattern.SetActive(true);
+            CDReloadActual -= Time.deltaTime;
+
+            if (CDReloadActual <= 0)
+            {
+                isReloadingReload = false;
+            }
+        }
+
+        if (canReload)
+        {
+            if ((reloadKey.GetLastStateDown(pose.inputSource)) && (isDefending == false))
+            {
+                if (isReloadingReload == false)
+                {
+                    reloadParticles.SetActive(true);
+                    reloadActualObject = Instantiate(reloadPattern, reloadSignSpawnPoint.position, Quaternion.identity);
+                    reloadActualObject.transform.LookAt(new Vector3(GameManager_Sorciere.Instance.GetPlayerHead().position.x, reloadActualObject.transform.position.y, GameManager_Sorciere.Instance.GetPlayerHead().position.z));
+                    isReloadingReload = true;
+                    CDReloadActual = CDReload;
+                }
+            }
+            else if (reloadKey.GetLastStateUp(pose.inputSource))
+            {
+                reloadParticles.SetActive(false);
+
+                if (reloadActualObject != null)
+                {
+                    Destroy(reloadActualObject);
+                }
+            }
         }
 
         if ((shieldKey.GetLastStateDown(pose.inputSource)) && (GameManager_Sorciere.Instance.GetDefending() == false))

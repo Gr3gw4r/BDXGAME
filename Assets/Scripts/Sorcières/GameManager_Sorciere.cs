@@ -54,6 +54,10 @@ public class GameManager_Sorciere : MonoBehaviour
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
 
+    public Transform playerHead;
+
+    private GameObject reloadObject;
+
     private void Awake()
     {
         if (Instance == null)
@@ -249,5 +253,23 @@ public class GameManager_Sorciere : MonoBehaviour
     private void ShowScore()
     {
         scoreText.text = ("Score : ") + myScore.ToString("0");
+    }
+
+    public Transform GetPlayerHead()
+    {
+        return playerHead;
+    }
+
+    public void SetReloadObject(GameObject myReloadObject)
+    {
+        reloadObject = myReloadObject;
+    }
+
+    public void DestroyReloadObject()
+    {
+        if (reloadObject != null)
+        {
+            Destroy(reloadObject);
+        }
     }
 }

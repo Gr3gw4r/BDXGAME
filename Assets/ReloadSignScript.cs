@@ -12,6 +12,10 @@ public class ReloadSignScript : MonoBehaviour
 
     public GameObject reloadParticles;
 
+    public float CDReload;
+    private float CDReloadActual;
+    private bool isReloadingReload = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,25 +32,27 @@ public class ReloadSignScript : MonoBehaviour
             if (maxTimeToReachNextPointActual > maxTimeToReachNextPoint)
             {
                 ResetPoints();
-                Debug.Log("plus le time");
+                GameManager_Sorciere.Instance.DestroyReloadObject();
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Instantiate(reloadParticles, transform.position, Quaternion.identity);
-
         if (other.gameObject.CompareTag("ReloadPoint"))
         {
             int newPosition = other.GetComponent<TriggerPointReloadScript>().GetMyNumber();
 
             if (newPosition == actualPosition + 1)
             {
+                Instantiate(reloadParticles, transform.position, Quaternion.identity);
+
                 actualPosition += 1;
                 maxTimeToReachNextPointActual = 0;
 
                 Instantiate(reloadParticles, transform.position, Quaternion.identity);
+
+                Destroy(other.gameObject);
 
                 if (actualPosition >= 5)
                 {
@@ -56,6 +62,7 @@ public class ReloadSignScript : MonoBehaviour
             }
             else
             {
+                GameManager_Sorciere.Instance.DestroyReloadObject();
                 ResetPoints();
             }
         }
@@ -65,6 +72,5 @@ public class ReloadSignScript : MonoBehaviour
     {
         actualPosition = 0;
         maxTimeToReachNextPointActual = 0;
-        Debug.Log("pas bien ouej");
     }
 }
