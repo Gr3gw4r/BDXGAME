@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnnemySorciereScript : MonoBehaviour
 {
     private Transform mySpawnPoint;
-    public float scoreValue;
+    public int scoreValue;
 
     public float life;
     private float lifeActual;

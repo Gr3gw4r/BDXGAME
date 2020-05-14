@@ -90,6 +90,8 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator DeathScreen(gamemodes newMode, int newLastScore)
     {
+        yield return new WaitForSeconds(delayToSwitchScene);
+
         lastScore = newLastScore;
 
         if (newMode == gamemodes.Sorciere)
@@ -116,7 +118,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(delayToSwitchScene);
+        Debug.Log("salut");
+
+        Debug.Log("tom");
 
         SceneManager.LoadSceneAsync(deathScene);
     }
@@ -141,5 +145,25 @@ public class GameManager : MonoBehaviour
     public int getLastScore()
     {
         return lastScore;
+    }
+
+    public int getHighScore()
+    {
+        if (myGamemode == gamemodes.Sorciere)
+        {
+            return highScoreWitch;
+        }
+
+        if (myGamemode == gamemodes.Fantome)
+        {
+            return highScoreGhost;
+        }
+
+        if (myGamemode == gamemodes.LoupGarou)
+        {
+            return highScoreWerewolf;
+        }
+
+        return 0;
     }
 }

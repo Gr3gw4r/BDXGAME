@@ -49,7 +49,7 @@ public class GameManager_Sorciere : MonoBehaviour
     private float timeToSpawnBoss;
     private bool bossIsSpawned = false;
 
-    private float myScore = 0;
+    private int myScore = 0;
 
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
@@ -104,15 +104,17 @@ public class GameManager_Sorciere : MonoBehaviour
             }
         }
 
-        if (isPaused == false)
-        {
-            timeActual -= Time.deltaTime;
-            ShowTime();
-        }
-
         if (timeActual <= 0)
         {
-
+            StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.Sorciere, myScore));
+        }
+        else
+        {
+            if (isPaused == false)
+            {
+                timeActual -= Time.deltaTime;
+                ShowTime();
+            }
         }
 
         if (CDSpawnActualSoldier >= CDSpawnSoldier)
@@ -169,6 +171,11 @@ public class GameManager_Sorciere : MonoBehaviour
     public float GetCD()
     {
         return CDsoldier;
+    }
+
+    public void Reload()
+    {
+        shootStockActual = shootStock;
     }
 
     public void SetBulletNumber(int addValue)
@@ -228,7 +235,7 @@ public class GameManager_Sorciere : MonoBehaviour
         return true;
     }
 
-    public void GetScore(float addValue)
+    public void GetScore(int addValue)
     {
         myScore += addValue;
         ShowScore();
