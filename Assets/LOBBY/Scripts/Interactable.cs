@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-public enum gamemodes { Sorciere, Fantome, LoupGarou};
+public enum gamemodes { Sorciere, Fantome, LoupGarou, Hub};
 
 namespace Valve.VR.InteractionSystem
 {
@@ -52,6 +52,10 @@ namespace Valve.VR.InteractionSystem
                 else if (hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() == null && myGamemode == gamemodes.Fantome)
                 {
                     GameManager_Fantome.Instance.CheckGhostObject(hand.currentAttachedObject.gameObject);
+                }
+                else if (hand.currentAttachedObject.gameObject.CompareTag("TpObject"))
+                {
+                    StartCoroutine(GameManager.Instance.switchScene(hand.currentAttachedObject.gameObject.GetComponent<TPObjectScript>().getDestination()));
                 }
             }
         }

@@ -13,6 +13,7 @@ TagManager:
   - SorciereEnnemies
   - Heal
   - ReloadPoint
+  - TpObject
   layers:
   - Default
   - TransparentFX

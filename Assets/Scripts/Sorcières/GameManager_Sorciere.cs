@@ -76,6 +76,8 @@ public class GameManager_Sorciere : MonoBehaviour
 
         ShowTime();
         ShowScore();
+
+        GameManager.Instance.SetGameMode(gamemodes.Sorciere);
     }
 
     // Update is called once per frame

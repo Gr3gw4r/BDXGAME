@@ -61,18 +61,25 @@ public class GameManager_Fantome : MonoBehaviour
     void Start()
     {
         SetEmptys();
+
+        GameManager.Instance.SetGameMode(gamemodes.Fantome);
+
+        timeActual = time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeActual += Time.deltaTime;
         CDActual += Time.deltaTime;
         CDFGhostActual += Time.deltaTime;
 
-        if (timeActual >= time)
+        if (timeActual <= 0)
         {
-            Debug.Log("fin du mini-jeu");
+            StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.Fantome, score));
+        }
+        else
+        {
+            timeActual -= Time.deltaTime;
         }
 
         if (CDActual >= resetCD)
