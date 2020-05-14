@@ -21427,13 +21427,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349374853, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: myGamemode
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2067839244, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: myGamemode
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2070474682, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+    - {fileID: 2070474690, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+    - {fileID: 330784902, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+    - {fileID: 330784910, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
 --- !u!4 &1551539102 stripped
 Transform:
