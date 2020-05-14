@@ -42,4 +42,19 @@ public class Timer : MonoBehaviour
         }
         takingAway = false;
     }
+
+    /*private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Jambon"))
+        {
+            secondsLeft += 10;
+            Debug.Log("+10sec");
+        }
+    }*/
+
+    public void Heal()
+    {
+        secondsLeft += 10;
+        Debug.Log("+10sec");
+    }
 }
