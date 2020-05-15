@@ -24,7 +24,7 @@ public class Jambon : MonoBehaviour
         {
             GetComponent<Timer>().Heal();
             Debug.Log("+10sec");
-            Destroy(jambon.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
