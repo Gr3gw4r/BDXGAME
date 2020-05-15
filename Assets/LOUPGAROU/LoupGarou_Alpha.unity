@@ -784,12 +784,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 230
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MaxSize: 238
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -818,8 +818,8 @@ RectTransform:
   m_Father: {fileID: 2044143166}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.9107307}
-  m_AnchorMax: {x: 0.24111906, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10314,6 +10314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
         type: 3}
+      propertyPath: waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
       propertyPath: waves.Array.data[0].enemy
       value: 
       objectReference: {fileID: 1917744556}
@@ -10325,7 +10330,7 @@ PrefabInstance:
     - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
         type: 3}
       propertyPath: waves.Array.data[0].count
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
         type: 3}
@@ -10340,6 +10345,26 @@ PrefabInstance:
     - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
         type: 3}
       propertyPath: waves.Array.data[1].rate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
+      propertyPath: waves.Array.data[2].name
+      value: enemy02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
+      propertyPath: waves.Array.data[2].enemy
+      value: 
+      objectReference: {fileID: 1253680691}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
+      propertyPath: waves.Array.data[2].count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
+      propertyPath: waves.Array.data[2].rate
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -13184,6 +13209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
         type: 3}
+      propertyPath: waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
       propertyPath: waves.Array.data[0].enemy
       value: 
       objectReference: {fileID: 1917744556}
@@ -13210,6 +13240,26 @@ PrefabInstance:
     - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
         type: 3}
       propertyPath: waves.Array.data[1].rate
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
+      propertyPath: waves.Array.data[2].name
+      value: enemy02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
+      propertyPath: waves.Array.data[2].enemy
+      value: 
+      objectReference: {fileID: 1253680691}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
+      propertyPath: waves.Array.data[2].count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
+      propertyPath: waves.Array.data[2].rate
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -27371,6 +27421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
         type: 3}
+      propertyPath: waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
       propertyPath: waves.Array.data[0].enemy
       value: 
       objectReference: {fileID: 1253680691}
@@ -27397,6 +27452,26 @@ PrefabInstance:
     - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
         type: 3}
       propertyPath: waves.Array.data[1].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
+      propertyPath: waves.Array.data[2].name
+      value: enemy02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
+      propertyPath: waves.Array.data[2].enemy
+      value: 
+      objectReference: {fileID: 1253680691}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
+      propertyPath: waves.Array.data[2].count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021166633694876123, guid: 9452086200b59f546866077c3bd5ac0d,
+        type: 3}
+      propertyPath: waves.Array.data[2].rate
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -28758,17 +28833,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044143165}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -1.04}
+  m_LocalScale: {x: 0.0058554816, y: 0.0058554816, z: 0.0058554816}
   m_Children:
   - {fileID: 89164787}
   m_Father: {fileID: 0}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 563.5, y: 317}
+  m_AnchoredPosition: {x: 9.14, y: 5.06}
   m_SizeDelta: {x: 1127, y: 634}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2044143167
