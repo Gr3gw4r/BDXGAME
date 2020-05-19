@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 
         if (newMode == gamemodes.LoupGarou)
         {
-            SceneManager.LoadSceneAsync(werewolfScene);
+            SceneManager.LoadScene(werewolfScene);
         }
     }
 
@@ -117,10 +117,6 @@ public class GameManager : MonoBehaviour
                 highScoreWerewolf = lastScore;
             }
         }
-
-        Debug.Log("salut");
-
-        Debug.Log("tom");
 
         SceneManager.LoadSceneAsync(deathScene);
     }

@@ -43,10 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edb228d11990cb49821cd33391b7b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayToSwitchScene: 4
+  delayToSwitchScene: 1
   hubScene: HUB_placeHolder
   witchScene: LD_Sorciere
-  werewolfScene: LoupGarou_LD
+  werewolfScene: LoupGarou_Alpha
   ghostScene: "NewLD_Fant\xF4me"
   deathScene: DeathScene
   myGamemode: 0

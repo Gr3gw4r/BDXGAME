@@ -58,6 +58,9 @@ public class GameManager_Sorciere : MonoBehaviour
 
     private GameObject reloadObject;
 
+    public GameObject leftHandNoStock;
+    public GameObject rightHandNoStock;
+
     private void Awake()
     {
         if (Instance == null)
@@ -121,6 +124,19 @@ public class GameManager_Sorciere : MonoBehaviour
             }
         }
 
+        if (shootStockActual <= 0)
+        {
+            Debug.Log(shootStockActual);
+            leftHandNoStock.SetActive(false);
+            rightHandNoStock.SetActive(false);
+        }
+
+        if (shootStockActual > 0)
+        {
+            leftHandNoStock.SetActive(true);
+            rightHandNoStock.SetActive(true);
+        }
+
         if (CDSpawnActualSoldier >= CDSpawnSoldier)
         {
             SpawnEnnemies(soldier, parentSpawnSoldier);
@@ -137,7 +153,7 @@ public class GameManager_Sorciere : MonoBehaviour
 
         if (isPaused)
         {
-            timeText.color = Color.blue;
+            timeText.color = Color.yellow;
         }
         else
         {

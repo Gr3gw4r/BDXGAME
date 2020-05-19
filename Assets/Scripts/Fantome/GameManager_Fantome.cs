@@ -140,7 +140,9 @@ public class GameManager_Fantome : MonoBehaviour
     {
         if (MGhostInScene == false)
         {
-            Instantiate(mGhost, parentSpawnPointM.GetChild(Random.Range(0, parentSpawnPointM.childCount)).transform.position, Quaternion.identity);
+            int mySpawnPointIndex = Random.Range(0, parentSpawnPointM.childCount);
+            GameObject newGhost = Instantiate(mGhost, parentSpawnPointM.GetChild(mySpawnPointIndex).transform.position, Quaternion.identity);
+            newGhost.transform.rotation = parentSpawnPointM.GetChild(mySpawnPointIndex).transform.rotation;
         }
     }
 

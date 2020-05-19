@@ -62,23 +62,23 @@ public class WaveSpawner : MonoBehaviour
         {
             waveCountdown -= Time.deltaTime;
         }
+    }
 
-        void WaveCompleted()
+    void WaveCompleted()
+    {
+        Debug.Log("Wave Completed");
+
+        state = SpawnState.COUNTING;
+        waveCountdown = timeBetweenWaves;
+
+        if (nextWave + 1 > waves.Length - 1)
         {
-            Debug.Log("Wave Completed");
-
-            state = SpawnState.COUNTING;
-            waveCountdown = timeBetweenWaves;
-
-            if (nextWave + 1 > waves.Length - 1)
-            {
-                nextWave = 0;
-                Debug.Log("Completed all waves ! Looping...");
-            }
-            else
-            {
-                nextWave++;
-            }
+            nextWave = 0;
+            Debug.Log("Completed all waves ! Looping...");
+        }
+        else
+        {
+            nextWave++;
         }
     }
 

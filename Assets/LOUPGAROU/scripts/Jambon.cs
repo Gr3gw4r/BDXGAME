@@ -18,9 +18,9 @@ public class Jambon : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("PlayerHead"))
+        if (collision.gameObject.CompareTag("PlayerHead"))
         {
             GetComponent<Timer>().Heal();
             Debug.Log("+10sec");

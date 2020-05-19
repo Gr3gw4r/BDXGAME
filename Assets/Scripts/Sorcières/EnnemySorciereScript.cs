@@ -39,14 +39,19 @@ public class EnnemySorciereScript : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if (GetImmune() == true)
+        if (isPriest == true)
         {
-            shieldParticles.SetActive(true);
+            if (GetImmune() == true)
+            {
+                shieldParticles.SetActive(true);
+            }
+            else
+            {
+                shieldParticles.SetActive(false);
+            }
         }
-        else
-        {
-            shieldParticles.SetActive(false);
-        }
+
+        Debug.Log(mySpawnPoint);
     }
 
     public void SetMySpawnPoint(Transform newSpawnPoint)
@@ -57,7 +62,11 @@ public class EnnemySorciereScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        mySpawnPoint.GetComponent<SpawnPointSorciereScript>().SetFreeState(true);
+        if (mySpawnPoint != null)
+        {
+            mySpawnPoint.GetComponent<SpawnPointSorciereScript>().SetFreeState(true);
+        }
+
         GameManager_Sorciere.Instance.GetScore(scoreValue);
     }
 

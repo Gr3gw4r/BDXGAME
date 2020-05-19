@@ -5,9 +5,25 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    public static Timer Instance;
+
     public GameObject textDisplay;
     public int secondsLeft = 30;
     public bool takingAway = false;
+
+    public Transform target;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     private void Start()
     {
@@ -21,9 +37,9 @@ public class Timer : MonoBehaviour
             StartCoroutine(TimerTake());
         }
 
-        if(secondsLeft == 0)
+        if(secondsLeft <= 0)
         {
-            Debug.Log("insérer une fin");
+            StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.LoupGarou, 100));
         }
     }
 
@@ -47,5 +63,10 @@ public class Timer : MonoBehaviour
     {
         secondsLeft += 10;
         Debug.Log("+10sec");
+    }
+
+    public Transform GetTarget()
+    {
+        return target;
     }
 }

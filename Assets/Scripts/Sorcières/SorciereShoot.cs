@@ -64,13 +64,16 @@ public class SorciereShoot : MonoBehaviour
             CDActual = 0;
         }
 
-        if ((useAction.GetLastStateDown(pose.inputSource)) && (isReloading == false) && (GameManager_Sorciere.Instance.GetDefending() == false))
+        if ((useAction.GetLastStateDown(pose.inputSource)) && (isReloading == false))
         {
-            shootStockActual = GameManager_Sorciere.Instance.GetBulletNumber();
-
-            if (shootStockActual > 0)
+            if ((GameManager_Sorciere.Instance.GetDefending() == false))
             {
-                 Shoot();
+                shootStockActual = GameManager_Sorciere.Instance.GetBulletNumber();
+
+                if (shootStockActual > 0)
+                {
+                    Shoot();
+                }
             }
         }
 
@@ -86,7 +89,7 @@ public class SorciereShoot : MonoBehaviour
 
         if (canReload)
         {
-            if ((reloadKey.GetLastStateDown(pose.inputSource)) && (isDefending == false))
+            if ((reloadKey.GetStateDown(pose.inputSource)) && (isDefending == false))
             {
                 if (isReloadingReload == false)
                 {
@@ -108,7 +111,7 @@ public class SorciereShoot : MonoBehaviour
             }
         }
 
-        if ((shieldKey.GetLastStateDown(pose.inputSource)) && (GameManager_Sorciere.Instance.GetDefending() == false))
+        if ((shieldKey.GetStateDown(pose.inputSource)) && (GameManager_Sorciere.Instance.GetDefending() == false))
         {
             shield.SetActive(true);
             isDefending = true;
