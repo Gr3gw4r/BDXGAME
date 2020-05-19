@@ -57,6 +57,13 @@ namespace Valve.VR.InteractionSystem
                 {
                     StartCoroutine(GameManager.Instance.switchScene(hand.currentAttachedObject.gameObject.GetComponent<TPObjectScript>().getDestination()));
                 }
+
+                if (hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() != null)
+                {
+                    Debug.Log("salut");
+                    GameManager_Fantome.Instance.GetStarted();
+                    hand.currentAttachedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                }
             }
         }
 

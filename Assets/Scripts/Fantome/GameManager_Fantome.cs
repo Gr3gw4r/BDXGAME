@@ -14,6 +14,10 @@ public class MGhostObject
 
 public class GameManager_Fantome : MonoBehaviour
 {
+    public bool isStarted;
+    public GameObject teleporting;
+    public GameObject beforeStartObject;
+
     public float time;
     private float timeActual;
 
@@ -70,16 +74,18 @@ public class GameManager_Fantome : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CDActual += Time.deltaTime;
-        CDFGhostActual += Time.deltaTime;
-
         if (timeActual <= 0)
         {
             StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.Fantome, score));
         }
         else
         {
-            timeActual -= Time.deltaTime;
+            if (isStarted = true)
+            {
+                timeActual -= Time.deltaTime;
+                CDActual += Time.deltaTime;
+                CDFGhostActual += Time.deltaTime;
+            }
         }
 
         if (CDActual >= resetCD)
@@ -93,7 +99,16 @@ public class GameManager_Fantome : MonoBehaviour
             CDFGhostActual = 0;
         }
 
+        
+
         ShowStats();
+    }
+
+    public void GetStarted()
+    {
+        isStarted = true;
+        teleporting.SetActive(true);
+        beforeStartObject.SetActive(true);
     }
 
     public void TakeObject(GameObject myObject)
