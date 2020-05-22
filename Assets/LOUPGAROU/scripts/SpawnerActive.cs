@@ -10,6 +10,7 @@ public class SpawnerActive : MonoBehaviour
     {
         spawner.SetActive(false);
     }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
