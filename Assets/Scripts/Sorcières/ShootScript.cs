@@ -7,6 +7,7 @@ public class ShootScript : MonoBehaviour
     private Rigidbody rb;
     public float speed;
     public float myDamage;
+    public GameObject ennemyDamageParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class ShootScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("SorciereEnnemies"))
         {
+            Instantiate(ennemyDamageParticles, other.transform.position, other.transform.rotation);
             other.GetComponent<EnnemySorciereScript>().LooseLife(myDamage);
             Destroy(this.gameObject);
         }

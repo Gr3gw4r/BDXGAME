@@ -58,8 +58,7 @@ public class GameManager_Sorciere : MonoBehaviour
 
     private GameObject reloadObject;
 
-    public GameObject leftHandNoStock;
-    public GameObject rightHandNoStock;
+    public ParticleSystem rightHandNoStock;
 
     private void Awake()
     {
@@ -91,7 +90,6 @@ public class GameManager_Sorciere : MonoBehaviour
     void Update()
     {
         CDSpawnActualSoldier += Time.deltaTime;
-        CDSpawnPriestActual += Time.deltaTime;
         timeToSpawnBoss -= Time.deltaTime;
 
         if ((timeToSpawnBoss <= 0) && (bossIsSpawned == false))
@@ -119,6 +117,7 @@ public class GameManager_Sorciere : MonoBehaviour
         {
             if (isPaused == false)
             {
+                CDSpawnPriestActual += Time.deltaTime;
                 timeActual -= Time.deltaTime;
                 ShowTime();
             }
@@ -126,15 +125,14 @@ public class GameManager_Sorciere : MonoBehaviour
 
         if (shootStockActual <= 0)
         {
-            Debug.Log(shootStockActual);
-            leftHandNoStock.SetActive(false);
-            rightHandNoStock.SetActive(false);
+            rightHandNoStock.gameObject.SetActive(false);
         }
 
         if (shootStockActual > 0)
         {
-            leftHandNoStock.SetActive(true);
-            rightHandNoStock.SetActive(true);
+            var ps = rightHandNoStock.emission;
+            ps.rateOverTime = shootStockActual;
+            rightHandNoStock.gameObject.SetActive(true);
         }
 
         if (CDSpawnActualSoldier >= CDSpawnSoldier)

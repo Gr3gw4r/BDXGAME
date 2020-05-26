@@ -123,9 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8901df7d45cc7de419814a3574633ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 35
   myDamage: 1
-  destroyedParticles: {fileID: 2416247245196498523, guid: 90940aeaf6437224f854e5995c48dc71,
+  ennemyDamageParticles: {fileID: 4668513831817673045, guid: 811029efabf1b1f45a97d4bce49549e3,
     type: 3}
 --- !u!1 &6264296229400507500
 GameObject:

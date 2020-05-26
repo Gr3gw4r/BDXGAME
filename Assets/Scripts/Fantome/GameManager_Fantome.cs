@@ -14,7 +14,7 @@ public class MGhostObject
 
 public class GameManager_Fantome : MonoBehaviour
 {
-    public bool isStarted;
+    private bool isStarted = false;
     public GameObject teleporting;
     public GameObject beforeStartObject;
 
@@ -48,6 +48,11 @@ public class GameManager_Fantome : MonoBehaviour
     public TextMeshProUGUI TimeText;
 
     public GameObject goodObjectParticles;
+    public GameObject badObjectParticles;
+
+    private bool isEffectiveEmptys = true;
+    public float timeFrozenEmptys;
+    public float timeToCatchMGhost;
 
     private void Awake()
     {
@@ -80,7 +85,7 @@ public class GameManager_Fantome : MonoBehaviour
         }
         else
         {
-            if (isStarted = true)
+            if (isStarted == true)
             {
                 timeActual -= Time.deltaTime;
                 CDActual += Time.deltaTime;
@@ -108,7 +113,12 @@ public class GameManager_Fantome : MonoBehaviour
     {
         isStarted = true;
         teleporting.SetActive(true);
-        beforeStartObject.SetActive(true);
+        beforeStartObject.SetActive(false);
+    }
+
+    public GameObject GetCamera()
+    {
+        return ghostCamera;
     }
 
     public void TakeObject(GameObject myObject)
@@ -118,6 +128,9 @@ public class GameManager_Fantome : MonoBehaviour
 
     public void SetEmptys()
     {
+        isEffectiveEmptys = true;
+        SetEmptysParticles(true);
+
         if (MGhostInScene == false)
         {
             int indexToSpawn = Random.Range(0, objectsToSpawnMGhost.Length);
@@ -134,21 +147,28 @@ public class GameManager_Fantome : MonoBehaviour
 
     public void CheckGhostObject(GameObject myGameObject)
     {
-        if (myGameObject == objectToSpawn)
+        if (isEffectiveEmptys == true)
         {
-            Instantiate(goodObjectParticles, myGameObject.transform.position, Quaternion.identity);
-            SpawnMGhost();
-        }
-        else if (myGameObject != objectToSpawn)
-        {
-            SetEmptys();
+            if (myGameObject == objectToSpawn)
+            {
+                Instantiate(goodObjectParticles, myGameObject.transform.position, Quaternion.identity);
+                SpawnMGhost();
+                CDActual -= timeToCatchMGhost;
+            }
+            else if (myGameObject != objectToSpawn)
+            {
+                Instantiate(badObjectParticles, myGameObject.transform.position, Quaternion.identity);
+                Invoke("SetEmptys", timeFrozenEmptys);
+            }
+
+            isEffectiveEmptys = false;
+            SetEmptysParticles(false);
         }
     }
 
     public void AddScore(int newScore)
     {
         score += newScore;
-        Debug.Log(score);
     }
 
     public void SpawnMGhost()
@@ -186,7 +206,15 @@ public class GameManager_Fantome : MonoBehaviour
 
     private void ShowStats()
     {
-        scoreText.text = ("Score : ") + score.ToString("0");
+        scoreText.text = ("Score:") + score.ToString(" 0");
         TimeText.text = ((timeActual/time)*100).ToString("0") + ("%");
+    }
+
+    public void SetEmptysParticles(bool newState)
+    {
+        for (int i = 0; i < emptys.Length; i++)
+        {
+            emptys[i].GetComponent<EmptysScript>().SetParticles(newState);
+        }
     }
 }

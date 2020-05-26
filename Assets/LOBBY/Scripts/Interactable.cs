@@ -49,7 +49,8 @@ namespace Valve.VR.InteractionSystem
                 {
                     hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>().MakePhoto();
                 }
-                else if (hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() == null && myGamemode == gamemodes.Fantome)
+
+                if ((hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() == null) && (myGamemode == gamemodes.Fantome))
                 {
                     GameManager_Fantome.Instance.CheckGhostObject(hand.currentAttachedObject.gameObject);
                 }
@@ -60,9 +61,7 @@ namespace Valve.VR.InteractionSystem
 
                 if (hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() != null)
                 {
-                    Debug.Log("salut");
                     GameManager_Fantome.Instance.GetStarted();
-                    hand.currentAttachedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 }
             }
         }

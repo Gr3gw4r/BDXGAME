@@ -50,8 +50,6 @@ public class EnnemySorciereScript : MonoBehaviour
                 shieldParticles.SetActive(false);
             }
         }
-
-        Debug.Log(mySpawnPoint);
     }
 
     public void SetMySpawnPoint(Transform newSpawnPoint)
