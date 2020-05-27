@@ -28,10 +28,11 @@ public class SorciereEnnemyScript : MonoBehaviour
             CDToShootActual = 0;
         }
     }
+
     public void Shoot()
     {
         GameObject newBullet = Instantiate(bullet, spawnBulletPoint.position, Quaternion.identity);
-        newBullet.transform.LookAt(GameManager_Sorciere.Instance.GetAstral().transform.position);
+        newBullet.transform.LookAt(GameManager_Sorciere.Instance.GetPlayer().transform.position);
         newBullet.GetComponent<EnnemyShootSorciere>().SetDamage(damage);
     }
 }

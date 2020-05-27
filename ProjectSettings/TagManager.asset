@@ -16,6 +16,7 @@ TagManager:
   - TpObject
   - Jambon
   - PlayerHead
+  - PlayerDamaged
   layers:
   - Default
   - TransparentFX

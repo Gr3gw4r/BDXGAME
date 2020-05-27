@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 10
-  life: 4
+  life: 2
   isPriest: 0
   shieldParticles: {fileID: 2198235876124392496}
 --- !u!1 &2198235876124392496

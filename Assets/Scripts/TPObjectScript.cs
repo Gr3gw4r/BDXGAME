@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TPObjectScript : MonoBehaviour
 {
@@ -15,31 +16,44 @@ public class TPObjectScript : MonoBehaviour
     public GameObject WitchObject;
     public GameObject GhostObject;
 
+    public TextMeshProUGUI myText;
+
+    public string hubText;
+    public string replayText;
+    public string witchText;
+    public string ghostText;
+    public string werewolfText;
+
     // Start is called before the first frame update
     void Start()
     {
         if (lastGamemode == true)
         {
             myDestination = GameManager.Instance.GetGameMode();
+            myText.text = replayText;
         }
 
         if (myDestination == gamemodes.Hub)
         {
+            myText.text = hubText;
             hubObject.SetActive(true);
         }
 
         if (myDestination == gamemodes.Sorciere)
         {
+            myText.text = witchText;
             WitchObject.SetActive(true);
         }
 
         if (myDestination == gamemodes.Fantome)
         {
+            myText.text = ghostText;
             GhostObject.SetActive(true);
         }
 
         if (myDestination == gamemodes.LoupGarou)
         {
+            myText.text = werewolfText;
             WolfObject.SetActive(true);
         }
     }

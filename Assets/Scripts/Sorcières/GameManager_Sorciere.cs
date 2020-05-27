@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public enum spells { Attack, Defend, TimeSlow}
 
 public class GameManager_Sorciere : MonoBehaviour
 {
     public static GameManager_Sorciere Instance;
+
+    public GameObject player;
 
     public float timer;
     private float timeActual;
@@ -26,8 +29,6 @@ public class GameManager_Sorciere : MonoBehaviour
 
     public float CDSpawnPriest;
     private float CDSpawnPriestActual = 0;
-
-    public GameObject astral;
 
     public GameObject soldier;
     public Transform parentSpawnSoldier;
@@ -51,7 +52,7 @@ public class GameManager_Sorciere : MonoBehaviour
 
     private int myScore = 0;
 
-    public TextMeshProUGUI timeText;
+    public Image timeImage;
     public TextMeshProUGUI scoreText;
 
     public Transform playerHead;
@@ -151,11 +152,11 @@ public class GameManager_Sorciere : MonoBehaviour
 
         if (isPaused)
         {
-            timeText.color = Color.yellow;
+            timeImage.color = Color.yellow;
         }
         else
         {
-            timeText.color = Color.white;
+            timeImage.color = Color.white;
         }
     }
 
@@ -216,9 +217,9 @@ public class GameManager_Sorciere : MonoBehaviour
         isDefending = newDefending;
     }
 
-    public GameObject GetAstral()
+    public GameObject GetPlayer()
     {
-        return astral;
+        return player;
     }
 
     public void LooseTime(float addTimeValue)
@@ -261,7 +262,7 @@ public class GameManager_Sorciere : MonoBehaviour
 
     private void ShowTime()
     {
-        timeText.text = ("Time : ") + timeActual.ToString("0");
+        timeImage.fillAmount = timeActual/timer;
     }
 
     private void ShowScore()

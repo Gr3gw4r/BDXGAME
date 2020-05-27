@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnnemyShootSorciere : MonoBehaviour
 {
-    private float myDamage = 1;
+    private float myDamage;
 
     public GameObject destroyedParticles;
 
@@ -29,7 +29,7 @@ public class EnnemyShootSorciere : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Astral"))
+        if (other.gameObject.CompareTag("PlayerDamaged"))
         {
             GameManager_Sorciere.Instance.LooseTime(myDamage);
             Instantiate(damagedParticles, transform.position, Quaternion.identity);
