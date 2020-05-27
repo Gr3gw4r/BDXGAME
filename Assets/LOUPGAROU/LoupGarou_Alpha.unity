@@ -2681,15 +2681,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: enemy01
-    enemy: {fileID: 3997017201462264746, guid: 60169e5e4963b3e4685868168c22944e, type: 3}
+    enemy: {fileID: 1945680730717835603, guid: 25c9f305d93c00043b74dee1c32c9040, type: 3}
     count: 2
     rate: 1.5
   - name: enemy02
-    enemy: {fileID: 3997017201462264746, guid: 60169e5e4963b3e4685868168c22944e, type: 3}
+    enemy: {fileID: 4995065500108174410, guid: 6da7446b872236a44aeb411a5625178b, type: 3}
     count: 3
     rate: 4
   - name: enemy02
-    enemy: {fileID: 4995065500108174410, guid: 6da7446b872236a44aeb411a5625178b, type: 3}
+    enemy: {fileID: 3894124483615469287, guid: a2ae52cfc89b4ea4ab411cc41b2e5605, type: 3}
     count: 3
     rate: 4
   timeBetweenWaves: 5
