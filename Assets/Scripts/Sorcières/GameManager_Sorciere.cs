@@ -85,6 +85,8 @@ public class GameManager_Sorciere : MonoBehaviour
         ShowScore();
 
         GameManager.Instance.SetGameMode(gamemodes.Sorciere);
+        GameManager.Instance.SetRunMode(runmodes.single);
+        GameManager.Instance.AddGamesMade();
     }
 
     // Update is called once per frame
@@ -112,6 +114,7 @@ public class GameManager_Sorciere : MonoBehaviour
 
         if (timeActual <= 0)
         {
+            GameManager.Instance.AddTotalScore(myScore);
             StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.Sorciere, myScore));
         }
         else

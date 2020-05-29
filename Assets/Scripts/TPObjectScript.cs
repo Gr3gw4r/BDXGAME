@@ -15,6 +15,7 @@ public class TPObjectScript : MonoBehaviour
     public GameObject WolfObject;
     public GameObject WitchObject;
     public GameObject GhostObject;
+    public GameObject menuObject;
 
     public TextMeshProUGUI myText;
 
@@ -23,6 +24,7 @@ public class TPObjectScript : MonoBehaviour
     public string witchText;
     public string ghostText;
     public string werewolfText;
+    public string MenuText;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +58,12 @@ public class TPObjectScript : MonoBehaviour
             myText.text = werewolfText;
             WolfObject.SetActive(true);
         }
+
+        if (myDestination == gamemodes.Menu)
+        {
+            myText.text = MenuText;
+            menuObject.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -69,5 +77,10 @@ public class TPObjectScript : MonoBehaviour
         Instantiate(tpParticles, transform.position, Quaternion.identity);
 
         return myDestination;
+    }
+
+    public void SetMyDestination(gamemodes newGamemode)
+    {
+        myDestination = newGamemode;
     }
 }

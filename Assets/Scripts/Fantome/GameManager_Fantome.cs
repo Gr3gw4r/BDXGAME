@@ -72,6 +72,8 @@ public class GameManager_Fantome : MonoBehaviour
         SetEmptys();
 
         GameManager.Instance.SetGameMode(gamemodes.Fantome);
+        GameManager.Instance.SetRunMode(runmodes.single);
+        GameManager.Instance.AddGamesMade();
 
         timeActual = time;
     }
@@ -81,6 +83,7 @@ public class GameManager_Fantome : MonoBehaviour
     {
         if (timeActual <= 0)
         {
+            GameManager.Instance.AddTotalScore(score);
             StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.Fantome, score));
         }
         else

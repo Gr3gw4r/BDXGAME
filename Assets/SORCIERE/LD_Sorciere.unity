@@ -3141,8 +3141,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205993744}
-  m_LocalRotation: {x: 0.014360205, y: 0.9998802, z: 0.0000830596, w: 0.005783319}
-  m_LocalPosition: {x: 1.71, y: -1.85, z: 6.68}
+  m_LocalRotation: {x: 0.0032001028, y: 0.9999782, z: 0.000018509427, w: 0.005783886}
+  m_LocalPosition: {x: 1.702, y: -2.073, z: 6.68}
   m_LocalScale: {x: 0.31541416, y: 0.31541407, z: 0.31541413}
   m_Children:
   - {fileID: 703588782}
@@ -3158,7 +3158,7 @@ Transform:
   - {fileID: 2066069215}
   m_Father: {fileID: 2040818898}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.646}
+  m_LocalEulerAnglesHint: {x: 0, y: 179.337, z: 0.367}
 --- !u!136 &205993746
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13034,12 +13034,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 302946170}
-  timer: 120
+  timer: 5
   shoot: {fileID: 5905704711431476556, guid: 6a6a8786e2f02b643b6611573eeda3d4, type: 3}
   CDsoldier: 0.2
   shootStock: 15
-  CDSpawnSoldier: 7
-  difficultyIndex: 0.5
+  CDSpawnSoldier: 12
+  difficultyIndex: 2
   CDSpawnPriest: 25
   soldier: {fileID: 1390077978563661606, guid: 06ae9cde4e5d35743b665fbe401bf60a, type: 3}
   parentSpawnSoldier: {fileID: 1403907125}
@@ -23959,7 +23959,7 @@ MonoBehaviour:
   noSteamVRFallbackCamera: {fileID: 0}
   noSteamVRFallbackMaxDistanceNoItem: 10
   noSteamVRFallbackMaxDistanceWithItem: 0.5
-  renderModelPrefab: {fileID: 2758669774235568245, guid: 98666dbc08ffa4a4f8c4a9f5697f28c5,
+  renderModelPrefab: {fileID: 4292565685537570256, guid: b0aebc5837da6a344b3fab36588a2060,
     type: 3}
   renderModels: []
   mainRenderModel: {fileID: 0}

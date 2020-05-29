@@ -39,6 +39,7 @@ public class Timer : MonoBehaviour
 
         if(secondsLeft <= 0)
         {
+            GameManager.Instance.AddTotalScore(100);
             StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.LoupGarou, 100));
         }
     }

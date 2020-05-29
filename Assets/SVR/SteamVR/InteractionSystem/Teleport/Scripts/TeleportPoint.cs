@@ -6,6 +6,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -46,6 +47,8 @@ namespace Valve.VR.InteractionSystem
 		private Color tintColor = Color.clear;
 		private Color titleColor = Color.clear;
 		private float fullTitleAlpha = 0.0f;
+
+        public GameObject GM;
 
 		//Constants
 		private const string switchSceneAnimation = "switch_scenes_idle";
@@ -221,7 +224,8 @@ namespace Valve.VR.InteractionSystem
 			if ( !string.IsNullOrEmpty( switchToScene ) )
 			{
 				Debug.Log("<b>[SteamVR Interaction]</b> TeleportPoint: Hook up your level loading logic to switch to new scene: " + switchToScene, this);
-			}
+                SceneManager.LoadSceneAsync(switchToScene);
+            }
 			else
 			{
 				Debug.LogError("<b>[SteamVR Interaction]</b> TeleportPoint: Invalid scene name to switch to: " + switchToScene, this);

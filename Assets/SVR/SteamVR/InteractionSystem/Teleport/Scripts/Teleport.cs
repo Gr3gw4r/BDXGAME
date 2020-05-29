@@ -832,9 +832,10 @@ namespace Valve.VR.InteractionSystem
 			currentFadeTime = teleportFadeTime;
 
 			TeleportPoint teleportPoint = teleportingToMarker as TeleportPoint;
+
 			if ( teleportPoint != null && teleportPoint.teleportType == TeleportPoint.TeleportPointType.SwitchToNewScene )
 			{
-				currentFadeTime *= 3.0f;
+                currentFadeTime *= 3.0f;
 				Teleport.ChangeScene.Send( currentFadeTime );
 			}
 
@@ -868,7 +869,7 @@ namespace Valve.VR.InteractionSystem
 				//Teleport to a new scene
 				if ( teleportPoint.teleportType == TeleportPoint.TeleportPointType.SwitchToNewScene )
 				{
-					teleportPoint.TeleportToScene();
+                    teleportPoint.TeleportToScene();
 					return;
 				}
 			}

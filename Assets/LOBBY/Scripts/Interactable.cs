@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-public enum gamemodes { Sorciere, Fantome, LoupGarou, Hub};
+public enum gamemodes { Sorciere, Fantome, LoupGarou, Hub, Menu};
 
 namespace Valve.VR.InteractionSystem
 {

@@ -15,6 +15,10 @@ public class GameManger_LG : MonoBehaviour
         List<GameObject> TPPoints = new List<GameObject>();
 
         SetPoints();
+
+        GameManager.Instance.SetGameMode(gamemodes.LoupGarou);
+        GameManager.Instance.SetRunMode(runmodes.single);
+        GameManager.Instance.AddGamesMade();
     }
 
     // Update is called once per frame

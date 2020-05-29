@@ -48,5 +48,7 @@ MonoBehaviour:
   witchScene: LD_Sorciere
   werewolfScene: LoupGarou_Alpha
   ghostScene: "NewLD_Fant\xF4me"
+  menuScene: Menu
   deathScene: DeathScene
   myGamemode: 0
+  fullRunSet: 00000000020000000100000004000000
