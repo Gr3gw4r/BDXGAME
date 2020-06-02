@@ -4,10 +4,28 @@ using UnityEngine;
 
 public class GameManger_LG : MonoBehaviour
 {
+    public static GameManger_LG Instance;
+
     public float fightAreaPercent;
     public float bonusAreaPercent;
 
     public List<GameObject> TPPoints;
+
+    public GameObject player;
+
+    public float distanceToTriggerTP;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -64,5 +82,15 @@ public class GameManger_LG : MonoBehaviour
 
             TPPoints.Remove(TPPoints[myIndex]);
         }
+    }
+
+    public GameObject GetPlayer()
+    {
+        return player;
+    }
+
+    public float GetMinDistance()
+    {
+        return distanceToTriggerTP;
     }
 }

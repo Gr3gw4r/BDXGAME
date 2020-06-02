@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.17420834, g: 0.21785605, b: 0.30006298, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -96,7 +96,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: fd5f6fa2106ad89428e5e5990a2e9ec1,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -31785,8 +31786,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531946817}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.955}
-  m_LocalScale: {x: 0.0036120615, y: 0.0036120596, z: 0.0015233147}
+  m_LocalPosition: {x: 0, y: 0, z: 0.9542}
+  m_LocalScale: {x: 0.0036120615, y: 0.0036120596, z: 0.0022971586}
   m_Children: []
   m_Father: {fileID: 17182371}
   m_RootOrder: 0
@@ -31881,7 +31882,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 1.8906643, y: 2.865532, z: 10.688938, w: 7.224953}
+  m_margin: {x: -13.818789, y: 2.865532, z: 10.688938, w: 7.224953}
   m_textInfo:
     textComponent: {fileID: 531946819}
     characterCount: 1
@@ -38035,7 +38036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleporting: {fileID: 1705288642}
   beforeStartObject: {fileID: 1477145540}
-  time: 5
+  time: 150
   objectsToSpawnMGhost:
   - myObject: {fileID: 1453213489}
     myPictures:
@@ -38785,7 +38786,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712744711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.734, y: -1.577, z: 1.75}
+  m_LocalPosition: {x: -0.734, y: -1.577, z: 2.147}
   m_LocalScale: {x: 0.9059937, y: 0.19877, z: 0.48928672}
   m_Children: []
   m_Father: {fileID: 1477145541}
@@ -57831,7 +57832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4397945764477074, guid: 10b29c17f95ac0f4eab62d3e55d2d2e8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.713
+      value: 5.11
       objectReference: {fileID: 0}
     - target: {fileID: 4397945764477074, guid: 10b29c17f95ac0f4eab62d3e55d2d2e8, type: 3}
       propertyPath: m_LocalRotation.x

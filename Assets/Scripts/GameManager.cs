@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     private int totalScore = 0;
     private int HighTotalScore = 0;
 
+    public int[] GamesScore;
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -112,6 +114,8 @@ public class GameManager : MonoBehaviour
 
         lastScore = newLastScore;
 
+        GamesScore[gamesMade - 1] = lastScore;
+
         if (myRunmode == runmodes.full)
         {
             if (totalScore > HighTotalScore)
@@ -147,9 +151,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(deathScene);
     }
 
-    public void AddTotalScore(int lastScore)
+    public void AddTotalScore(int newValue)
     {
-        totalScore += lastScore;
+        totalScore += newValue;
+        Debug.Log(totalScore);
     }
 
     public void Save()
@@ -173,6 +178,11 @@ public class GameManager : MonoBehaviour
     public int getLastScore()
     {
         return lastScore;
+    }
+
+    public int GetGamesScore(int indexGame)
+    {
+        return GamesScore[indexGame];
     }
 
     public int getHighScore()

@@ -83,7 +83,6 @@ public class GameManager_Fantome : MonoBehaviour
     {
         if (timeActual <= 0)
         {
-            GameManager.Instance.AddTotalScore(score);
             StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.Fantome, score));
         }
         else
@@ -172,6 +171,7 @@ public class GameManager_Fantome : MonoBehaviour
     public void AddScore(int newScore)
     {
         score += newScore;
+        GameManager.Instance.AddTotalScore(newScore);
     }
 
     public void SpawnMGhost()

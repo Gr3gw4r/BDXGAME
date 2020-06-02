@@ -69,7 +69,7 @@ public class GameManager_Sorciere : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 
@@ -114,7 +114,6 @@ public class GameManager_Sorciere : MonoBehaviour
 
         if (timeActual <= 0)
         {
-            GameManager.Instance.AddTotalScore(myScore);
             StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.Sorciere, myScore));
         }
         else
@@ -260,6 +259,7 @@ public class GameManager_Sorciere : MonoBehaviour
     public void GetScore(int addValue)
     {
         myScore += addValue;
+        GameManager.Instance.AddTotalScore(addValue);
         ShowScore();
     }
 

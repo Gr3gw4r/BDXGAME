@@ -16,6 +16,10 @@ public class DeathSceneManager : MonoBehaviour
     public TextMeshProUGUI totalScoreText;
     public TextMeshProUGUI HighTotalScoreText;
 
+    public Transform gamesScore;
+
+    public TextMeshProUGUI[] GamesScoreText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +30,8 @@ public class DeathSceneManager : MonoBehaviour
         {
             case runmodes.full:
                 fullRunObject.SetActive(true);
-                totalScoreText.text = GameManager.Instance.GetTotalScore().ToString("0");
-                HighTotalScoreText.text = GameManager.Instance.GetHighTotalScore().ToString("0");
+                totalScoreText.text = ("Score total: ") + GameManager.Instance.GetTotalScore().ToString("0");
+                HighTotalScoreText.text = ("Meilleur score total: ") + GameManager.Instance.GetHighTotalScore().ToString("0");
                 TPObjectNextScene.GetComponent<TPObjectScript>().SetMyDestination(GameManager.Instance.GetNextDestination());
                 break;
             case runmodes.single:
@@ -38,6 +42,15 @@ public class DeathSceneManager : MonoBehaviour
                 break;
             default:
                 break;
+        }
+
+        if (GameManager.Instance.GetGamesMadeNumber() >= 1)
+        {
+            for (int i = 1; i <= GameManager.Instance.GetGamesMadeNumber(); i++)
+            {
+                gamesScore.GetChild(i - 1).gameObject.SetActive(true);
+                GamesScoreText[i - 1].text = GameManager.Instance.GetGamesScore(i - 1).ToString("0");
+            }
         }
     }
 

@@ -649,7 +649,7 @@ namespace Valve.VR.InteractionSystem
 			{
 				if ( teleportMarker != null && teleportMarker.markerActive && teleportMarker.gameObject != null )
 				{
-					teleportMarker.gameObject.SetActive( false );
+					//teleportMarker.gameObject.SetActive( false );
 				}
 			}
 

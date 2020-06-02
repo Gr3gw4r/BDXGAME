@@ -37,7 +37,7 @@ public class EnnemySorciereScript : MonoBehaviour
                 GameManager_Sorciere.Instance.SetPriestNumber(-1);
             }
 
-            Destroy(this.gameObject);
+            isDead();
         }
 
         if (isPriest == true)
@@ -59,8 +59,10 @@ public class EnnemySorciereScript : MonoBehaviour
         mySpawnPoint.GetComponent<SpawnPointSorciereScript>().SetFreeState(false);
     }
 
-    private void OnDestroy()
+    private void isDead()
     {
+        Destroy(this.gameObject);
+
         if (mySpawnPoint != null)
         {
             mySpawnPoint.GetComponent<SpawnPointSorciereScript>().SetFreeState(true);

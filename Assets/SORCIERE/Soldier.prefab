@@ -114,7 +114,7 @@ MonoBehaviour:
   spawnBulletPoint: {fileID: 2394212612194041050}
   bullet: {fileID: 8542306400475029299, guid: 6abf792b47d7eca43baa9e77d48aba69, type: 3}
   damage: 3
-  CDToShoot: 5
+  CDToShoot: 3
 --- !u!54 &-8340253670770848192
 Rigidbody:
   m_ObjectHideFlags: 0

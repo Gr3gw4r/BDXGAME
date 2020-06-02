@@ -13034,18 +13034,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 302946170}
-  timer: 5
+  timer: 150
   shoot: {fileID: 5905704711431476556, guid: 6a6a8786e2f02b643b6611573eeda3d4, type: 3}
   CDsoldier: 0.2
   shootStock: 15
-  CDSpawnSoldier: 12
+  CDSpawnSoldier: 10
   difficultyIndex: 2
-  CDSpawnPriest: 25
+  CDSpawnPriest: 20
   soldier: {fileID: 1390077978563661606, guid: 06ae9cde4e5d35743b665fbe401bf60a, type: 3}
   parentSpawnSoldier: {fileID: 1403907125}
   priest: {fileID: 60705852255383963, guid: 9180b64a2960e9e4cb568e4f2dae6199, type: 3}
   parentSpawnPriest: {fileID: 2079995539}
-  timePaused: 30
+  timePaused: 20
   bossObject: {fileID: 6660280258147192113, guid: f8e9d2f57f6da1c4ca609b04695e6f07,
     type: 3}
   minTimeToSpawnBoss: 5
