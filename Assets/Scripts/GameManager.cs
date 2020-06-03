@@ -228,7 +228,6 @@ public class GameManager : MonoBehaviour
     public void AddGamesMade()
     {
         gamesMade++;
-        Debug.Log(gamesMade);
     }
 
     public void ResetGamesMade()

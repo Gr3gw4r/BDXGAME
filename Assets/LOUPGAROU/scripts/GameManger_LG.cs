@@ -88,10 +88,13 @@ public class GameManger_LG : MonoBehaviour
             {
                 if (bonusAreaCount > 0)
                 {
+                    Debug.Log("bonus");
                     TPPoints[myIndex].GetComponent<TPPointScript>().SetMyArea(Area.Bonus);
                     bonusAreaCount--;
                 }
             }
+
+            TPPoints[myIndex].GetComponent<TPPointScript>().InitialiseMe();
 
             TPPoints.Remove(TPPoints[myIndex]);
         }

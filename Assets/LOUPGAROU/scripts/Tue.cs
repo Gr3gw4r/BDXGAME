@@ -16,7 +16,7 @@ public class Tue : MonoBehaviour
 
         if (other.CompareTag("Barrel"))
         {
-            other.GetComponent<Enemy>().LooseLife(Damage);
+            other.GetComponent<BarrelScript>().isBroke();
         }
     }
 
