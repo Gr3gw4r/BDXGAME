@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5252340222601200285
 Transform:
@@ -81,7 +81,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -119,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 5252340222726964770}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 22.157, y: -5.1, z: 6.08}
-  m_LocalScale: {x: 1.3125979, y: 1.3125979, z: 1.3125979}
+  m_LocalScale: {x: 1.3125983, y: 1.3125979, z: 1.3125983}
   m_Children:
   - {fileID: 5252340222601200285}
   m_Father: {fileID: 0}
