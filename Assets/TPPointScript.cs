@@ -15,11 +15,15 @@ public class TPPointScript : MonoBehaviour
 
     public Transform[] spawnPoints;
 
+    private GameObject barrel;
+
     // Start is called before the first frame update
     void Start()
     {
         minDistance = GameManger_LG.Instance.GetMinDistance();
         player = GameManger_LG.Instance.GetPlayer();
+
+        barrel = GameManger_LG.Instance.GetBarrel();
     }
 
     // Update is called once per frame
@@ -38,16 +42,14 @@ public class TPPointScript : MonoBehaviour
 
     public void Triggered()
     {
-        Debug.Log("trigerred");
-
         if (isActivated == false)
         {
             switch (MyArea)
             {
                 case Area.Bonus:
+                    Instantiate(barrel, transform.position, Quaternion.identity);
                     break;
                 case Area.Fight:
-                    Debug.Log("fight");
                     WaveSpawner.Instance.SpawnEnemy(GetSpawnPoints());
                     break;
                 case Area.Empty:

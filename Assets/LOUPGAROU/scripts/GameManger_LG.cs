@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManger_LG : MonoBehaviour
 {
@@ -14,6 +15,13 @@ public class GameManger_LG : MonoBehaviour
     public GameObject player;
 
     public float distanceToTriggerTP;
+
+    public TextMeshProUGUI textDisplay;
+    public float time = 30;
+
+    public Transform target;
+
+    public GameObject barrelObject;
 
     private void Awake()
     {
@@ -37,21 +45,26 @@ public class GameManger_LG : MonoBehaviour
         GameManager.Instance.SetGameMode(gamemodes.LoupGarou);
         GameManager.Instance.SetRunMode(runmodes.single);
         GameManager.Instance.AddGamesMade();
+
+        textDisplay.text = time.ToString("0");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        time -= Time.deltaTime;
+        textDisplay.text = time.ToString("0");
+
+        if (time <= 0)
+        {
+            StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.LoupGarou, 100));
+        }
     }
 
     private void SetPoints()
     {
-        Debug.Log(GameObject.FindGameObjectsWithTag("TPPoint"));
-
         foreach (GameObject myTPPoint in GameObject.FindGameObjectsWithTag("TPPoint"))
         {
-            Debug.Log("salut Tom");
             TPPoints.Add(myTPPoint);
         }
 
@@ -92,5 +105,21 @@ public class GameManger_LG : MonoBehaviour
     public float GetMinDistance()
     {
         return distanceToTriggerTP;
+    }
+
+    public void Heal()
+    {
+        time += 10;
+        Debug.Log("+10sec");
+    }
+
+    public Transform GetTarget()
+    {
+        return target;
+    }
+
+    public GameObject GetBarrel()
+    {
+        return barrelObject;
     }
 }

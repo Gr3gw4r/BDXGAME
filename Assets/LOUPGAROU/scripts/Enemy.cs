@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         lifeActual = life;
 
-        player = Timer.Instance.GetTarget();
+        player = GameManger_LG.Instance.GetTarget();
     }
 
     // Update is called once per frame
@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         direction.Normalize();
         movement = direction;
+
         if(life <= 10)
         {
             Destroy(shield.gameObject);

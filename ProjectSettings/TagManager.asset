@@ -17,6 +17,8 @@ TagManager:
   - Jambon
   - PlayerHead
   - PlayerDamaged
+  - TPPoint
+  - Barrel
   layers:
   - Default
   - TransparentFX

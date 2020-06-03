@@ -59,6 +59,12 @@ namespace Valve.VR.InteractionSystem
                     StartCoroutine(GameManager.Instance.switchScene(hand.currentAttachedObject.gameObject.GetComponent<TPObjectScript>().getDestination()));
                 }
 
+                if ((hand.currentAttachedObject.gameObject.GetComponent<BonusScript>() != null) && (myGamemode == gamemodes.LoupGarou))
+                {
+                    Debug.Log("salut");
+                    hand.currentAttachedObject.gameObject.GetComponent<BonusScript>().StartCoroutine("GetBonusEffect");
+                }
+
                 if (hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() != null)
                 {
                     GameManager_Fantome.Instance.GetStarted();

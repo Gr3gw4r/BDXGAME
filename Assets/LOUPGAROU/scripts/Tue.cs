@@ -13,6 +13,11 @@ public class Tue : MonoBehaviour
         {
             other.GetComponent<Enemy>().LooseLife(Damage);
         }
+
+        if (other.CompareTag("Barrel"))
+        {
+            other.GetComponent<Enemy>().LooseLife(Damage);
+        }
     }
 
 
