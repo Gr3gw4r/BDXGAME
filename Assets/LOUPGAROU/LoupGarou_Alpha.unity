@@ -16502,10 +16502,11 @@ MonoBehaviour:
   player: {fileID: 875557526}
   distanceToTriggerTP: 0.3
   textDisplay: {fileID: 142659910}
-  time: 60
+  time: 5
   target: {fileID: 875557527}
   barrelObject: {fileID: 8750539634522009497, guid: c8f21d222ddb7ae48a50a2c0fe957be1,
     type: 3}
+  scoreText: {fileID: 142659910}
 --- !u!4 &1230618922
 Transform:
   m_ObjectHideFlags: 0

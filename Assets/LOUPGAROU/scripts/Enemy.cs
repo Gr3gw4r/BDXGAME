@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody rb;
     private Vector3 movement;
-    public int Score;
+    public int scoreValue;
     public float life;
     private float lifeActual;
     public GameObject shield;
@@ -60,5 +60,11 @@ public class Enemy : MonoBehaviour
     public void LooseLife(float addValue)
     {
         life -= addValue;
+    }
+
+    public void Death()
+    {
+        GameManger_LG.Instance.AddScore(scoreValue);
+        Destroy(this.gameObject);
     }
 }

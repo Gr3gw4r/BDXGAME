@@ -61,6 +61,8 @@ public class GameManager_Sorciere : MonoBehaviour
 
     public ParticleSystem rightHandNoStock;
 
+    private bool gaveScore = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -114,6 +116,12 @@ public class GameManager_Sorciere : MonoBehaviour
 
         if (timeActual <= 0)
         {
+            if (gaveScore == false)
+            {
+                GameManager.Instance.DeathScreen(gamemodes.LoupGarou, myScore);
+                gaveScore = true;
+            }
+
             StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.Sorciere, myScore));
         }
         else
@@ -259,7 +267,6 @@ public class GameManager_Sorciere : MonoBehaviour
     public void GetScore(int addValue)
     {
         myScore += addValue;
-        GameManager.Instance.AddTotalScore(addValue);
         ShowScore();
     }
 

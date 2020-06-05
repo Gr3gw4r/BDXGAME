@@ -54,6 +54,8 @@ public class GameManager_Fantome : MonoBehaviour
     public float timeFrozenEmptys;
     public float timeToCatchMGhost;
 
+    private bool gaveScore;
+
     private void Awake()
     {
         if (Instance == null)
@@ -83,6 +85,12 @@ public class GameManager_Fantome : MonoBehaviour
     {
         if (timeActual <= 0)
         {
+            if (gaveScore == false)
+            {
+                GameManager.Instance.DeathScreen(gamemodes.LoupGarou, score);
+                gaveScore = true;
+            }
+
             StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.Fantome, score));
         }
         else

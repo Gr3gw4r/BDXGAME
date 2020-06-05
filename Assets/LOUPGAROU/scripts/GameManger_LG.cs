@@ -16,12 +16,17 @@ public class GameManger_LG : MonoBehaviour
 
     public float distanceToTriggerTP;
 
-    public TextMeshProUGUI textDisplay;
+    public  textDisplay;
     public float time = 30;
 
     public Transform target;
 
     public GameObject barrelObject;
+
+    private int score = 0;
+    public TextMeshProUGUI scoreText;
+
+    private bool gaveScore = false;
 
     private void Awake()
     {
@@ -52,12 +57,22 @@ public class GameManger_LG : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time -= Time.deltaTime;
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+        }
+
         textDisplay.text = time.ToString("0");
 
         if (time <= 0)
         {
-            StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.LoupGarou, 100));
+            if (gaveScore == false)
+            {
+                GameManager.Instance.DeathScreen(gamemodes.LoupGarou, score);
+                gaveScore = true;
+            }
+
+            StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.LoupGarou, score));
         }
     }
 
@@ -88,7 +103,6 @@ public class GameManger_LG : MonoBehaviour
             {
                 if (bonusAreaCount > 0)
                 {
-                    Debug.Log("bonus");
                     TPPoints[myIndex].GetComponent<TPPointScript>().SetMyArea(Area.Bonus);
                     bonusAreaCount--;
                 }
@@ -113,7 +127,6 @@ public class GameManger_LG : MonoBehaviour
     public void Heal()
     {
         time += 10;
-        Debug.Log("+10sec");
     }
 
     public Transform GetTarget()
@@ -124,5 +137,10 @@ public class GameManger_LG : MonoBehaviour
     public GameObject GetBarrel()
     {
         return barrelObject;
+    }
+
+    public void AddScore(int addValue)
+    {
+        score += addValue;
     }
 }

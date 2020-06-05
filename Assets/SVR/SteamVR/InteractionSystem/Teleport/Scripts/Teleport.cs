@@ -649,8 +649,9 @@ namespace Valve.VR.InteractionSystem
 			{
 				if ( teleportMarker != null && teleportMarker.markerActive && teleportMarker.gameObject != null )
 				{
-					//teleportMarker.gameObject.SetActive( false );
-				}
+					teleportMarker.gameObject.transform.GetChild(0).gameObject.SetActive( false );
+                    //teleportMarker.gameObject.SetActive(false);
+                }
 			}
 
 			destinationReticleTransform.gameObject.SetActive( false );
@@ -689,8 +690,9 @@ namespace Valve.VR.InteractionSystem
 				{
 					if ( teleportMarker.markerActive && teleportMarker.ShouldActivate( player.feetPositionGuess ) )
 					{
-						teleportMarker.gameObject.SetActive( true );
-						teleportMarker.Highlight( false );
+                        teleportMarker.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                        //teleportMarker.gameObject.SetActive(true);
+                        teleportMarker.Highlight( false );
 					}
 				}
 

@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
 
         if (newMode == gamemodes.Menu)
         {
+            ResetRunMode();
             SceneManager.LoadScene(menuScene);
         }
     }
@@ -218,6 +219,12 @@ public class GameManager : MonoBehaviour
     public runmodes GetRunMode()
     {
         return myRunmode;
+    }
+
+    public void ResetRunMode()
+    {
+        gotMyRunMode = false;
+        gamesMade = 0;
     }
 
     public int GetGamesMadeNumber()
