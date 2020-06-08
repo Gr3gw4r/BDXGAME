@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  scoreValue: 0
+  scoreValue: 5
   life: 5
   shield: {fileID: 0}
   bras: {fileID: 0}

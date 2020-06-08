@@ -73,9 +73,12 @@ public class WaveSpawner : MonoBehaviour
 
         var randomWaveIndex = Random.Range(0, waves.Length);
 
+        Debug.Log(waves[randomWaveIndex].enemy.Length);
+
         for (int i = 0; i < waves[randomWaveIndex].enemy.Length; i++)
         {
-            Instantiate(waves[randomWaveIndex].enemy[i], spawners[Random.Range(0, spawners.Count)].transform.position, transform.rotation);
+            //Instantiate(waves[randomWaveIndex].enemy[i], spawners[Random.Range(0, spawners.Count)].transform.position, transform.rotation);
+            Instantiate(waves[randomWaveIndex].enemy[i], spawners[i].transform.position, transform.rotation);
         }
     }
 }

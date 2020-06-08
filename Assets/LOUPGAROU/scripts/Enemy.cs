@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
 
     void moveCharacter(Vector3 direction)
     {
-        Vector3 myDirection = transform.position + (direction * moveSpeed * Time.deltaTime);
+        //Vector3 myDirection = transform.position + (direction * moveSpeed * Time.deltaTime);
         myNavMeshAgent.SetDestination(GameManger_LG.Instance.GetPlayer().transform.position);
     }
 

@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  scoreValue: 0
+  scoreValue: 15
   life: 10
   shield: {fileID: 8598331616755666406}
   bras: {fileID: 0}
