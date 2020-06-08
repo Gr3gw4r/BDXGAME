@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManger_LG : MonoBehaviour
 {
@@ -16,8 +17,9 @@ public class GameManger_LG : MonoBehaviour
 
     public float distanceToTriggerTP;
 
-    public  textDisplay;
-    public float time = 30;
+    public Slider timeSlider;
+    public float time;
+    private float timeActual;
 
     public Transform target;
 
@@ -43,6 +45,8 @@ public class GameManger_LG : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timeActual = time;
+
         List<GameObject> TPPoints = new List<GameObject>();
 
         SetPoints();
@@ -51,7 +55,8 @@ public class GameManger_LG : MonoBehaviour
         GameManager.Instance.SetRunMode(runmodes.single);
         GameManager.Instance.AddGamesMade();
 
-        textDisplay.text = time.ToString("0");
+        ShowScore();
+        ShowTime();
     }
 
     // Update is called once per frame
@@ -59,12 +64,13 @@ public class GameManger_LG : MonoBehaviour
     {
         if (time > 0)
         {
-            time -= Time.deltaTime;
+            timeActual -= Time.deltaTime;
+            ShowTime();
         }
 
-        textDisplay.text = time.ToString("0");
+        //textDisplay.text = time.ToString("0");
 
-        if (time <= 0)
+        if (timeActual <= 0)
         {
             if (gaveScore == false)
             {
@@ -126,7 +132,7 @@ public class GameManger_LG : MonoBehaviour
 
     public void Heal()
     {
-        time += 10;
+        timeActual += 10;
     }
 
     public Transform GetTarget()
@@ -142,5 +148,16 @@ public class GameManger_LG : MonoBehaviour
     public void AddScore(int addValue)
     {
         score += addValue;
+        ShowScore();
+    }
+
+    private void ShowScore()
+    {
+        scoreText.text = score.ToString("0");
+    }
+
+    private void ShowTime()
+    {
+        timeSlider.value = timeActual/time;
     }
 }

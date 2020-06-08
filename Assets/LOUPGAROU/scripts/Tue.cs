@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tue : MonoBehaviour
 {
-    public GameObject Enemy;
     public float Damage;
 
     private void OnTriggerEnter(Collider other)
@@ -19,6 +18,4 @@ public class Tue : MonoBehaviour
             other.GetComponent<BarrelScript>().isBroke();
         }
     }
-
-
 }

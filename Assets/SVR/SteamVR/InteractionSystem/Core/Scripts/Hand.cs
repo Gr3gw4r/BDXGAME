@@ -635,7 +635,10 @@ namespace Valve.VR.InteractionSystem
 
                     if (attachedObjects[index].attachedObject != null)
                     {
-                        attachedObjects[index].attachedObject.transform.parent = parentTransform;
+                        if (!attachedObjects[index].attachedObject.gameObject.CompareTag("Ham"))
+                        {
+                            attachedObjects[index].attachedObject.transform.parent = parentTransform;
+                        }
                     }
                 }
 

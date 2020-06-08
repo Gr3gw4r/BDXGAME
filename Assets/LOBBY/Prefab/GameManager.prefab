@@ -46,9 +46,11 @@ MonoBehaviour:
   delayToSwitchScene: 1
   hubScene: HUB_placeHolder
   witchScene: LD_Sorciere
-  werewolfScene: LoupGarou_Alpha
+  werewolfScene: LoupGarou_LD_v2
   ghostScene: "NewLD_Fant\xF4me"
   menuScene: Menu
   deathScene: DeathScene
   myGamemode: 0
+  myRunmode: 0
   fullRunSet: 00000000020000000100000004000000
+  GamesScore: 

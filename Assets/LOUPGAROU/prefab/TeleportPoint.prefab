@@ -164,7 +164,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3860005921602975675}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 2.4871044, y: -0.75019646, z: 5.247591}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -228,10 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyArea: 2
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  minDistanceToGetSpawner: 25
   barrelSpawnParent: {fileID: 3563401810855649793}
 --- !u!1 &3860005921602977837
 GameObject:

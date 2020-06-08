@@ -19,6 +19,7 @@ TagManager:
   - PlayerDamaged
   - TPPoint
   - Barrel
+  - Ham
   layers:
   - Default
   - TransparentFX
@@ -29,8 +30,8 @@ TagManager:
   - 
   - 
   - FGhost
-  - 
-  - 
+  - BonusLG
+  - EnemyLG
   - 
   - 
   - 

@@ -11,14 +11,18 @@ public class TPPointScript : MonoBehaviour
     private bool isActivated = false;
     private GameObject player;
 
+    public float minDistanceToGetSpawner;
     private float minDistance;
 
-    public Transform[] spawnPoints;
+    private List<GameObject> spawnPoints = new List<GameObject>();
 
     private GameObject barrel;
     public Transform barrelSpawnParent;
 
-    // Start is called before the first frame update
+    private Transform[] newSpawnPoint;
+
+    private bool gotPlayer = false;
+
     void Start()
     {
         minDistance = GameManger_LG.Instance.GetMinDistance();
@@ -35,6 +39,11 @@ public class TPPointScript : MonoBehaviour
         if (Vector3.Distance(transform.position, player.transform.position) < minDistance)
         {
             Triggered();
+            gotPlayer = true;
+        }
+        else
+        {
+            gotPlayer = false;
         }
     }
 
@@ -45,6 +54,17 @@ public class TPPointScript : MonoBehaviour
 
     public void Triggered()
     {
+        foreach (GameObject mySpawnPoints in GameObject.FindGameObjectsWithTag("TPPoint"))
+        {
+            if (mySpawnPoints.GetComponent<TPPointScript>().GotPlayerAsk() == false)
+            {
+                if (Vector3.Distance(transform.position, mySpawnPoints.transform.position) < minDistanceToGetSpawner)
+                {
+                    spawnPoints.Add(mySpawnPoints);
+                }
+            }
+        }
+
         if (isActivated == false)
         {
             switch (MyArea)
@@ -53,7 +73,8 @@ public class TPPointScript : MonoBehaviour
                     Debug.Log("salut");
                     break;
                 case Area.Fight:
-                    WaveSpawner.Instance.SpawnEnemy(GetSpawnPoints());
+                    Debug.Log(spawnPoints.Count);
+                    WaveSpawner.Instance.SpawnEnemy(spawnPoints);
                     break;
                 case Area.Empty:
                     break;
@@ -65,17 +86,11 @@ public class TPPointScript : MonoBehaviour
         }
     }
 
-    public Transform[] GetSpawnPoints()
-    {
-        return spawnPoints;
-    }
-
     public void InitialiseMe()
     {
         switch (MyArea)
         {
             case Area.Bonus:
-                Debug.Log("salut");
                 Instantiate(barrel, barrelSpawnParent.GetChild(Random.Range(0, barrelSpawnParent.childCount)).transform.position , Quaternion.identity);
                 break;
             case Area.Fight:
@@ -85,5 +100,10 @@ public class TPPointScript : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public bool GotPlayerAsk()
+    {
+        return gotPlayer;
     }
 }

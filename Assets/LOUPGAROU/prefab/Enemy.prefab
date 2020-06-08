@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 6950154561433463112}
   - component: {fileID: 1903605459175881968}
   - component: {fileID: 7268876581627772153}
-  m_Layer: 0
+  - component: {fileID: -77176341411593499}
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -123,8 +124,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3231171c5c8235e4daaf11db9a88102a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4431329744520386487, guid: 6fb9edcd3c1b6cb459232cd005a8f5ba, type: 3}
   moveSpeed: 5
-  Score: 0
+  scoreValue: 0
   life: 5
   shield: {fileID: 0}
+  bras: {fileID: 0}
+--- !u!195 &-77176341411593499
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4134862576499576219}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

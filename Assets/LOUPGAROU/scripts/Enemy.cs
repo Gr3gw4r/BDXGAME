@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,11 +15,13 @@ public class Enemy : MonoBehaviour
     public GameObject shield;
     public GameObject bras;
 
+    private NavMeshAgent myNavMeshAgent;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
+        myNavMeshAgent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
         lifeActual = life;
 
         player = GameManger_LG.Instance.GetTarget();
@@ -42,6 +45,7 @@ public class Enemy : MonoBehaviour
         }
         if (life <= 0)
         {
+            GameManger_LG.Instance.AddScore(scoreValue);
             Destroy(this.gameObject);
         }
     }
@@ -54,7 +58,7 @@ public class Enemy : MonoBehaviour
     void moveCharacter(Vector3 direction)
     {
         Vector3 myDirection = transform.position + (direction * moveSpeed * Time.deltaTime);
-        rb.MovePosition(new Vector3(myDirection.x, transform.position.y, myDirection.z));
+        myNavMeshAgent.SetDestination(GameManger_LG.Instance.GetPlayer().transform.position);
     }
 
     public void LooseLife(float addValue)

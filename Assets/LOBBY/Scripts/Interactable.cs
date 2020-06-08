@@ -61,8 +61,7 @@ namespace Valve.VR.InteractionSystem
 
                 if ((hand.currentAttachedObject.gameObject.GetComponent<BonusScript>() != null) && (myGamemode == gamemodes.LoupGarou))
                 {
-                    Debug.Log("salut");
-                    hand.currentAttachedObject.gameObject.GetComponent<BonusScript>().StartCoroutine("GetBonusEffect");
+                    hand.currentAttachedObject.gameObject.GetComponent<BonusScript>().GetBonusEffectInstant();
                 }
 
                 if (hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() != null)

@@ -13,8 +13,6 @@ public class WaveSpawner : MonoBehaviour
     {
         public string name;
         public GameObject[] enemy;
-        public int count;
-        public float rate;
     }
 
     public Wave[] waves;
@@ -65,9 +63,9 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnEnemy(Transform[] mySpawnpoints)
+    public void SpawnEnemy(List<GameObject> spawners)
     {
-        //Debug.Log("Spawning Enemy: " + _enemy.name);
+        Debug.Log(spawners);
 
         int spawnPointIndex = Random.Range(0, transform.childCount);
 
@@ -77,8 +75,7 @@ public class WaveSpawner : MonoBehaviour
 
         for (int i = 0; i < waves[randomWaveIndex].enemy.Length; i++)
         {
-            Debug.Log("spawn");
-            Instantiate(waves[randomWaveIndex].enemy[i], mySpawnpoints[Random.Range(0, mySpawnpoints.Length)].transform.position, transform.rotation);
+            Instantiate(waves[randomWaveIndex].enemy[i], spawners[Random.Range(0, spawners.Count)].transform.position, transform.rotation);
         }
     }
 }
