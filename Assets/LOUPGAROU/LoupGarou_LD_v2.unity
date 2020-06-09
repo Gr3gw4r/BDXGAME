@@ -84901,7 +84901,7 @@ MonoBehaviour:
   bonusAreaPercent: 0.25
   TPPoints: []
   player: {fileID: 563432665}
-  distanceToTriggerTP: 0.5
+  distanceToTriggerTP: 1
   timeSlider: {fileID: 1590280221}
   time: 120
   target: {fileID: 563231905}

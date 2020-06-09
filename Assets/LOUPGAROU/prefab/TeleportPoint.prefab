@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyArea: 2
-  minDistanceToGetSpawner: 25
+  minDistanceToGetSpawner: 50
   barrelSpawnParent: {fileID: 3563401810855649793}
 --- !u!1 &3860005921602977837
 GameObject:

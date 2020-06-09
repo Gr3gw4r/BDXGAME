@@ -22,6 +22,8 @@ public class WaveSpawner : MonoBehaviour
 
     public GameObject TPPoints;
 
+    private int spawnerIndex = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -65,20 +67,25 @@ public class WaveSpawner : MonoBehaviour
 
     public void SpawnEnemy(List<GameObject> spawners)
     {
-        Debug.Log(spawners);
-
         int spawnPointIndex = Random.Range(0, transform.childCount);
 
         //Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
         var randomWaveIndex = Random.Range(0, waves.Length);
 
-        Debug.Log(waves[randomWaveIndex].enemy.Length);
+        spawnerIndex = 0;
 
         for (int i = 0; i < waves[randomWaveIndex].enemy.Length; i++)
         {
             //Instantiate(waves[randomWaveIndex].enemy[i], spawners[Random.Range(0, spawners.Count)].transform.position, transform.rotation);
-            Instantiate(waves[randomWaveIndex].enemy[i], spawners[i].transform.position, transform.rotation);
+            spawnerIndex ++;
+
+            if (spawnerIndex >= spawners.Count)
+            {
+                spawnerIndex = 0;
+            }
+
+            Instantiate(waves[randomWaveIndex].enemy[i], spawners[spawnerIndex].transform.position, transform.rotation);
         }
     }
 }

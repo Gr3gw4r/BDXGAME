@@ -38,8 +38,12 @@ public class TPPointScript : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, player.transform.position) < minDistance)
         {
-            Triggered();
             gotPlayer = true;
+
+            if (isActivated == false)
+            {
+                Triggered();
+            }
         }
         else
         {
@@ -54,6 +58,10 @@ public class TPPointScript : MonoBehaviour
 
     public void Triggered()
     {
+        isActivated = true;
+
+        spawnPoints = new List<GameObject>();
+
         foreach (GameObject mySpawnPoints in GameObject.FindGameObjectsWithTag("TPPoint"))
         {
             if (mySpawnPoints.GetComponent<TPPointScript>().GotPlayerAsk() == false)
@@ -65,24 +73,19 @@ public class TPPointScript : MonoBehaviour
             }
         }
 
-        if (isActivated == false)
-        {
-            switch (MyArea)
-            {
-                case Area.Bonus:
-                    Debug.Log("salut");
-                    break;
-                case Area.Fight:
-                    Debug.Log(spawnPoints.Count);
-                    WaveSpawner.Instance.SpawnEnemy(spawnPoints);
-                    break;
-                case Area.Empty:
-                    break;
-                default:
-                    break;
-            }
+        Debug.Log(spawnPoints.Count);
 
-            isActivated = true;
+        switch (MyArea)
+        {
+            case Area.Bonus:
+                break;
+            case Area.Fight:
+                WaveSpawner.Instance.SpawnEnemy(spawnPoints);
+                break;
+            case Area.Empty:
+                break;
+            default:
+                break;
         }
     }
 

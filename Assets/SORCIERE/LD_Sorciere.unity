@@ -13034,7 +13034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 302946170}
-  timer: 5
+  timer: 120
   shoot: {fileID: 5905704711431476556, guid: 6a6a8786e2f02b643b6611573eeda3d4, type: 3}
   CDsoldier: 0.2
   shootStock: 15
