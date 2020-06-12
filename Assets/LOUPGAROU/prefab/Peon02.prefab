@@ -2304,7 +2304,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3997017201462264746}
   - component: {fileID: 3997017201472077482}
-  - component: {fileID: 5064703369132070675}
   m_Layer: 0
   m_Name: Peon02
   m_TagString: Untagged
@@ -2358,23 +2357,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5064703369132070675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3997017201462583914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3231171c5c8235e4daaf11db9a88102a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  Score: 0
-  life: 2
-  shield: {fileID: 0}
-  bras: {fileID: 0}
 --- !u!1 &3997017201462584920
 GameObject:
   m_ObjectHideFlags: 0

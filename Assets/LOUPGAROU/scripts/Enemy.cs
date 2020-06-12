@@ -5,17 +5,18 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private Transform player;
     public float moveSpeed = 5f;
     private Rigidbody rb;
     private Vector3 movement;
     public int scoreValue;
     public float life;
     private float lifeActual;
-    public GameObject shield;
-    public GameObject bras;
+
+    private Animator myAnimator;
 
     private NavMeshAgent myNavMeshAgent;
+
+    public bool isTriggered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,41 +25,38 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         lifeActual = life;
 
-        player = GameManger_LG.Instance.GetTarget();
+        int myModelIndex = Random.Range(0, transform.childCount);
+
+        transform.GetChild(myModelIndex).gameObject.SetActive(true);
+        myAnimator = transform.GetChild(myModelIndex).gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = player.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        direction.Normalize();
-        movement = direction;
-
-        if(life <= 10)
-        {
-            Destroy(shield.gameObject);
-        }
-        if (life <= 5)
-        {
-            Destroy(bras.gameObject);
-        }
         if (life <= 0)
         {
-            GameManger_LG.Instance.AddScore(scoreValue);
+            GameManager_LG2.Instance.AddScore(scoreValue);
             Destroy(this.gameObject);
+        }
+
+        if (myNavMeshAgent.isActiveAndEnabled == false && myNavMeshAgent.Warp(transform.position) == true)
+        {
+            myNavMeshAgent.enabled = true;
         }
     }
 
     private void FixedUpdate()
     {
-        moveCharacter(movement);
+        moveCharacter();
     }
 
-    void moveCharacter(Vector3 direction)
+    void moveCharacter()
     {
-        //Vector3 myDirection = transform.position + (direction * moveSpeed * Time.deltaTime);
-        myNavMeshAgent.SetDestination(GameManger_LG.Instance.GetPlayer().transform.position);
+        if (myNavMeshAgent.isActiveAndEnabled == true)
+        {
+            myNavMeshAgent.SetDestination(transform.position - GameManager_LG2.Instance.GetTarget().transform.position);
+        }
     }
 
     public void LooseLife(float addValue)
