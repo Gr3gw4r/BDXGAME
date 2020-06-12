@@ -1104,7 +1104,11 @@ MonoBehaviour:
     needsReinit: 0
   shield: {fileID: 1136453221}
   reloadPattern: {fileID: 0}
+  reloadParticles: {fileID: 0}
   headVR: {fileID: 429506}
+  canReload: 0
+  reloadSignSpawnPoint: {fileID: 0}
+  CDReload: 0
 --- !u!114 &330784910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,6 +1122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTimeToReachNextPoint: 5
+  reloadParticles: {fileID: 0}
+  CDReload: 0
 --- !u!1 &160596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,7 +1359,11 @@ MonoBehaviour:
     needsReinit: 0
   shield: {fileID: 733765955}
   reloadPattern: {fileID: 62166724}
+  reloadParticles: {fileID: 0}
   headVR: {fileID: 429506}
+  canReload: 0
+  reloadSignSpawnPoint: {fileID: 0}
+  CDReload: 0
 --- !u!114 &2070474690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,6 +1377,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTimeToReachNextPoint: 5
+  reloadParticles: {fileID: 0}
+  CDReload: 0
 --- !u!1 &165334
 GameObject:
   m_ObjectHideFlags: 0
