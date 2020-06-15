@@ -7530,7 +7530,7 @@ MonoBehaviour:
   maxTimeToReachNextPoint: 5
   reloadParticles: {fileID: 5982008777808693882, guid: 78c822fc57483eb48831b3c7d609b911,
     type: 3}
-  CDReload: 0
+  CDReload: 1
 --- !u!114 &526373447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7579,6 +7579,9 @@ MonoBehaviour:
     needsReinit: 0
   useAction:
     actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  moveForward:
+    actionPath: 
     needsReinit: 0
 --- !u!138 &527926516
 FixedJoint:
@@ -12056,6 +12059,9 @@ MonoBehaviour:
     needsReinit: 0
   useAction:
     actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  moveForward:
+    actionPath: 
     needsReinit: 0
 --- !u!138 &878374522
 FixedJoint:

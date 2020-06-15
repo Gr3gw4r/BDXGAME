@@ -10,7 +10,8 @@ public class Tue : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().LooseLife(Damage);
+            Debug.Log("salut");
+            other.GetComponent<Enemy>().Death();
         }
 
         if (other.CompareTag("Barrel"))

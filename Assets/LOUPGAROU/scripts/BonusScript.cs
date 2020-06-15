@@ -22,13 +22,13 @@ public class BonusScript : MonoBehaviour
     {
         yield return delayToUse;
 
-        GameManger_LG.Instance.Heal();
+        GameManager_LG2.Instance.Heal();
         Destroy(gameObject);
     }
 
     public void GetBonusEffectInstant()
     {
-        GameManger_LG.Instance.Heal();
+        GameManager_LG2.Instance.Heal();
         Destroy(gameObject);
     }
 }

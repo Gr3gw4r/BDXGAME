@@ -12,6 +12,7 @@ namespace Valve.VR.InteractionSystem
         public gamemodes myGamemode;
         public SteamVR_Action_Boolean grabAction = null;
         public SteamVR_Action_Boolean useAction = null;
+        public SteamVR_Action_Boolean moveForward = null;
 
         private SteamVR_Behaviour_Pose pose;
         private FixedJoint joint = null;
@@ -33,14 +34,9 @@ namespace Valve.VR.InteractionSystem
         void Update()
         {
 
-            if (useAction.GetStateDown(pose.inputSource))
+            if (useAction.GetState(pose.inputSource) && (myGamemode == gamemodes.LoupGarou))
             {
-                //Pickup();
-            }
-
-            if (useAction.GetStateUp(pose.inputSource))
-            {
-                //Drop();
+                PlayerMovement.Instance.MoveForward();
             }
 
             if (hand.currentAttachedObject != null)
@@ -67,6 +63,17 @@ namespace Valve.VR.InteractionSystem
                 if (hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() != null)
                 {
                     GameManager_Fantome.Instance.GetStarted();
+                }
+
+                if ((myGamemode == gamemodes.LoupGarou) && (moveForward.GetStateDown(pose.inputSource)))
+                {
+                    Debug.Log("salut");
+                    PlayerMovement.Instance.MoveForward();
+                }
+
+                if (moveForward.GetStateDown(pose.inputSource))
+                {
+
                 }
             }
         }

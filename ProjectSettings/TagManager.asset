@@ -20,6 +20,7 @@ TagManager:
   - TPPoint
   - Barrel
   - Ham
+  - LGWall
   layers:
   - Default
   - TransparentFX

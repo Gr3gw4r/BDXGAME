@@ -155,7 +155,6 @@ public class GameManager : MonoBehaviour
     public void AddTotalScore(int newValue)
     {
         totalScore += newValue;
-        Debug.Log(totalScore);
     }
 
     public void Save()

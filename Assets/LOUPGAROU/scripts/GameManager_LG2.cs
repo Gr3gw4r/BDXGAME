@@ -21,7 +21,7 @@ public class GameManager_LG2 : MonoBehaviour
     public float time;
     private float timeActual;
 
-    public Transform target;
+    public GameObject target;
 
     public GameObject barrelObject;
     public int barrelNumber;
@@ -32,6 +32,10 @@ public class GameManager_LG2 : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     private bool gaveScore = false;
+
+    private int multiplierScore = 1;
+    public float multiplierScoreDuration;
+    private float multiplierScoreDurationActual = 0;
 
     private void Awake()
     {
@@ -82,6 +86,16 @@ public class GameManager_LG2 : MonoBehaviour
 
             StartCoroutine(GameManager.Instance.DeathScreen(gamemodes.LoupGarou, score));
         }
+
+        if (multiplierScore > 1)
+        {
+            multiplierScoreDurationActual += Time.deltaTime;
+
+            if (multiplierScoreDurationActual >= multiplierScoreDuration)
+            {
+                multiplierScore = 1;
+            }
+        }
     }
 
     private void SpawnPNJ()
@@ -123,7 +137,7 @@ public class GameManager_LG2 : MonoBehaviour
         timeActual += 10;
     }
 
-    public Transform GetTarget()
+    public GameObject GetTarget()
     {
         return target;
     }
@@ -133,10 +147,31 @@ public class GameManager_LG2 : MonoBehaviour
         return barrelObject;
     }
 
+    public int GetMultiplier()
+    {
+        return multiplierScore;
+    }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
     public void AddScore(int addValue)
     {
-        score += addValue;
+        score += addValue * multiplierScore;
+        GameManager.Instance.AddTotalScore(addValue * multiplierScore);
         ShowScore();
+    }
+
+    public void AddMultiplier()
+    {
+        multiplierScoreDurationActual = 0;
+
+        if (multiplierScore < 6)
+        {
+            multiplierScore++;
+        }
     }
 
     private void ShowScore()

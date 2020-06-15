@@ -5012,6 +5012,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Soldier_02_Black
       objectReference: {fileID: 0}
+    - target: {fileID: 4508966785650207696, guid: 401a84e7b31af0b45846d6a003e62f71,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1883930598538925462, guid: d288a0e4a2d923b46898986e979da643,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 401a84e7b31af0b45846d6a003e62f71, type: 3}
 --- !u!4 &2672624810577542230 stripped

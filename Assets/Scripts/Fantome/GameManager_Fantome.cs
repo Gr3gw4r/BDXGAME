@@ -15,7 +15,6 @@ public class MGhostObject
 public class GameManager_Fantome : MonoBehaviour
 {
     private bool isStarted = false;
-    public GameObject teleporting;
     public GameObject beforeStartObject;
 
     public float time;
@@ -122,7 +121,6 @@ public class GameManager_Fantome : MonoBehaviour
     public void GetStarted()
     {
         isStarted = true;
-        teleporting.SetActive(true);
         beforeStartObject.SetActive(false);
     }
 
@@ -217,7 +215,7 @@ public class GameManager_Fantome : MonoBehaviour
 
     private void ShowStats()
     {
-        scoreText.text = ("Score:") + score.ToString(" 0");
+        scoreText.text = ("Score:") + score.ToString("0");
         TimeText.text = ((timeActual/time)*100).ToString("0") + ("%");
     }
 
