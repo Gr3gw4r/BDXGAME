@@ -3370,11 +3370,11 @@ CharacterJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945680730718190541}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 5741879347827095767}
   m_Anchor: {x: 0, y: 0.97, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 13.324787, y: -0.11655557, z: -3.836197}
+  m_ConnectedAnchor: {x: 0, y: 97, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -3527,6 +3527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1945680730717845185}
   - component: {fileID: 1945680730706428335}
+  - component: {fileID: 5741879347827095767}
   m_Layer: 0
   m_Name: Character_Female_Peasant_01
   m_TagString: Untagged
@@ -3647,6 +3648,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 86.52223, z: -7.3012342}
     m_Extent: {x: 102.120445, y: 96.1189, z: 30.009201}
   m_DirtyAABB: 0
+--- !u!54 &5741879347827095767
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945680730718193633}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1945680730718194445
 GameObject:
   m_ObjectHideFlags: 0
