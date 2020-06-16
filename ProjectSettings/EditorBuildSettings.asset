@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: "Assets/FANTOME/NewLD_Fant\xF4me.unity"
     guid: bf25c74030ed11c46a39a2ba78dbc0d5
   - enabled: 1
-    path: Assets/LOUPGAROU/LoupGarou_LD_v2.unity
-    guid: c18433264c58dc3468b2eea595a9acef
+    path: Assets/LOUPGAROU/NewNewNewLoupGarou.unity
+    guid: 924c26d2c266155418517998297051f7
   m_configObjects: {}

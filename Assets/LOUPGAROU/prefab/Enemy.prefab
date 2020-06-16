@@ -87,8 +87,7 @@ MonoBehaviour:
   myModelsParent: {fileID: 2795114928471317357}
   deathUI: {fileID: 6715056609521459797, guid: 3108b8967baf17847b28a522e313ab49, type: 3}
   deathUISpawnPoint: {fileID: 8167678622380099330}
-  bloodParticles: {fileID: 2615007869927306869, guid: 4e92408e231d13d429c1dbd8bb8c723e,
-    type: 3}
+  distanceForScore: 50
 --- !u!195 &-77176341411593499
 NavMeshAgent:
   m_ObjectHideFlags: 0

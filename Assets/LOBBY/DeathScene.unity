@@ -10883,6 +10883,9 @@ MonoBehaviour:
   useAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
+  moveForward:
+    actionPath: 
+    needsReinit: 0
 --- !u!23 &7938478558350600368
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11177,6 +11180,9 @@ MonoBehaviour:
     needsReinit: 0
   useAction:
     actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  moveForward:
+    actionPath: 
     needsReinit: 0
 --- !u!138 &7938478558727843702
 FixedJoint:

@@ -166,6 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9166825876686622393}
   - component: {fileID: 868320397034087030}
+  - component: {fileID: -8252350494601323974}
   m_Layer: 0
   m_Name: ScoreAddingText
   m_TagString: Untagged
@@ -202,6 +203,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myScore: {fileID: 7485586656348142748}
   myMultiplier: {fileID: 3863608039614856017}
+--- !u!95 &-8252350494601323974
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6715056609521459797}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 171fc850eef17a342b8cd2b7b862c6ca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7131245829262131212
 GameObject:
   m_ObjectHideFlags: 0
