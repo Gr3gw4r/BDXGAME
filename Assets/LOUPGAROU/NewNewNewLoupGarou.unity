@@ -17816,6 +17816,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 5
+  bloodParticles: {fileID: 2615007869927306869, guid: 4e92408e231d13d429c1dbd8bb8c723e,
+    type: 3}
 --- !u!114 &388213054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22231,6 +22233,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 463912627}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &463928317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 463928319}
+  - component: {fileID: 463928318}
+  m_Layer: 0
+  m_Name: PostProcessVolume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &463928318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463928317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: be8882694f698c040a1e148f91b61fe5, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!4 &463928319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463928317}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.4809296, y: 3.2171464, z: -24.712605}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &467136329
 GameObject:
   m_ObjectHideFlags: 0
@@ -35798,6 +35848,7 @@ GameObject:
   - component: {fileID: 771984256}
   - component: {fileID: 771984255}
   - component: {fileID: 771984254}
+  - component: {fileID: 771984258}
   m_Layer: 0
   m_Name: VRCamera
   m_TagString: MainCamera
@@ -35891,6 +35942,66 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &771984258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771984252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 771984253}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1001 &772719760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38012,7 +38123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &817696617
 Transform:
   m_ObjectHideFlags: 0
@@ -38021,7 +38132,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817696616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.34}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.43709, y: 0.43709, z: 0.43709}
   m_Children: []
   m_Father: {fileID: 771984253}
@@ -38039,8 +38150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd6575000fdaab4db63f8239e9a8fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &817696619
-BoxCollider:
+--- !u!135 &817696619
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -38050,8 +38161,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.1518655, y: 1, z: 1}
-  m_Center: {x: 0.24803407, y: 0, z: 0}
+  m_Radius: 1.5952545
+  m_Center: {x: 0, y: 0.09197925, z: 0}
 --- !u!1001 &818812956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53743,7 +53854,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mySpeed: 8
   cameraTransform: {fileID: 771984253}
-  CanMove: 1
 --- !u!1001 &1186721077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81570,6 +81680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 5
+  bloodParticles: {fileID: 2615007869927306869, guid: 4e92408e231d13d429c1dbd8bb8c723e,
+    type: 3}
 --- !u!114 &1766215526
 MonoBehaviour:
   m_ObjectHideFlags: 0

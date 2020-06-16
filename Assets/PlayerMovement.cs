@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float mySpeed;
     public Transform cameraTransform;
 
-    public bool CanMove = true;
+    private bool CanMove = true;
 
     private void Awake()
     {
@@ -46,7 +46,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 myDestination = cameraTransform.position + cameraTransform.forward;
             myDestination.y = transform.position.y;
-            transform.position = Vector3.MoveTowards(transform.position, myDestination, mySpeed * Time.deltaTime);
+            Vector3 myPosition = cameraTransform.position;
+            myPosition.y = transform.position.y;
+            Vector3 myTarget = transform.position + (myDestination - myPosition);
+            transform.position = Vector3.MoveTowards(transform.position, myTarget, mySpeed * Time.deltaTime);
         }
     }
 }

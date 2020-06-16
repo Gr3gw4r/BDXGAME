@@ -33,4 +33,9 @@ public class LookAtPlayerScript : MonoBehaviour
     {
         myMultiplier.text = ("X") + newMultiplierText;
     }
+
+    public void Destroyed()
+    {
+        Destroy(this.gameObject);
+    }
 }

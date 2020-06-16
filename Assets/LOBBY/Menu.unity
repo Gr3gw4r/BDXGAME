@@ -991,7 +991,6 @@ MonoBehaviour:
   titleHighlightedColor: {r: 0.45280647, g: 0.9191189, b: 0.45602244, a: 0.5}
   titleLockedColor: {r: 0.7867738, g: 0.5544188, b: 0.1388565, a: 0.5}
   playerSpawnPoint: 0
-  GM: {fileID: 0}
 --- !u!111 &89482857
 Animation:
   m_ObjectHideFlags: 0
@@ -1976,7 +1975,6 @@ MonoBehaviour:
   titleHighlightedColor: {r: 0.45280647, g: 0.9191189, b: 0.45602244, a: 0.5}
   titleLockedColor: {r: 0.7867738, g: 0.5544188, b: 0.1388565, a: 0.5}
   playerSpawnPoint: 0
-  GM: {fileID: 0}
 --- !u!111 &205414581
 Animation:
   m_ObjectHideFlags: 0
@@ -6832,7 +6830,6 @@ MonoBehaviour:
   titleHighlightedColor: {r: 0.45280647, g: 0.9191189, b: 0.45602244, a: 0.5}
   titleLockedColor: {r: 0.7867738, g: 0.5544188, b: 0.1388565, a: 0.5}
   playerSpawnPoint: 0
-  GM: {fileID: 0}
 --- !u!114 &927006407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6863,7 +6860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 6e8b24558e6899742b276a1b6c480de1, type: 2}
-  m_Color: {r: 1, g: 0.98813534, b: 0.7607843, a: 0.32156864}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9407,7 +9404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 6e8b24558e6899742b276a1b6c480de1, type: 2}
-  m_Color: {r: 1, g: 0.98813534, b: 0.7607843, a: 0.32156864}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9464,7 +9461,6 @@ MonoBehaviour:
   titleHighlightedColor: {r: 0.45280647, g: 0.9191189, b: 0.45602244, a: 0.5}
   titleLockedColor: {r: 0.7867738, g: 0.5544188, b: 0.1388565, a: 0.5}
   playerSpawnPoint: 0
-  GM: {fileID: 0}
 --- !u!114 &1189245061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11149,12 +11145,11 @@ MonoBehaviour:
   markerActive: 1
   teleportType: 1
   title: Loup_Garou
-  switchToScene: LoupGarou_LD_v2
+  switchToScene: NewNewNewLoupGarou
   titleVisibleColor: {r: 0, g: 0, b: 0, a: 0.5}
   titleHighlightedColor: {r: 0.45280647, g: 0.9191189, b: 0.45602244, a: 0.5}
   titleLockedColor: {r: 0.7867738, g: 0.5544188, b: 0.1388565, a: 0.5}
   playerSpawnPoint: 0
-  GM: {fileID: 0}
 --- !u!114 &1457290624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11168,7 +11163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 6e8b24558e6899742b276a1b6c480de1, type: 2}
-  m_Color: {r: 1, g: 0.98813534, b: 0.7607843, a: 0.32156864}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
