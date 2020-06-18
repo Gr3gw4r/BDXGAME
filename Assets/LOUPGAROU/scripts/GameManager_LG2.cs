@@ -22,6 +22,7 @@ public class GameManager_LG2 : MonoBehaviour
     private float timeActual;
 
     public GameObject target;
+    public Transform camera;
 
     public GameObject barrelObject;
     public int barrelNumber;
@@ -142,6 +143,11 @@ public class GameManager_LG2 : MonoBehaviour
         return target;
     }
 
+    public Transform GetCamera()
+    {
+        return camera;
+    }
+
     public GameObject GetBarrel()
     {
         return barrelObject;
@@ -161,6 +167,8 @@ public class GameManager_LG2 : MonoBehaviour
     {
         score += addValue * multiplierScore;
         GameManager.Instance.AddTotalScore(addValue * multiplierScore);
+        Debug.Log(score);
+        Debug.Log(GameManager.Instance.GetTotalScore());
         ShowScore();
     }
 

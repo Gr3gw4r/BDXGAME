@@ -100,14 +100,15 @@ public class SorciereShoot : MonoBehaviour
                     CDReloadActual = CDReload;
                 }
             }
-            else if (reloadKey.GetLastStateUp(pose.inputSource))
-            {
-                reloadParticles.SetActive(false);
+        }
 
-                if (reloadActualObject != null)
-                {
-                    Destroy(reloadActualObject);
-                }
+        if (reloadKey.GetLastStateUp(pose.inputSource))
+        {
+            reloadParticles.SetActive(false);
+
+            if (reloadActualObject != null)
+            {
+                Destroy(reloadActualObject);
             }
         }
 

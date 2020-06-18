@@ -85,23 +85,14 @@ public class Enemy : MonoBehaviour
             isDead = true;
 
             GameManager_LG2.Instance.AddScore(scoreValue);
-            GameManager_LG2.Instance.AddMultiplier();
 
-            Vector3 spawnPoint;
-            float degree = Vector3.Angle(transform.position, playerTransform.position);
-            float radian = degree * Mathf.Deg2Rad;
-            float x = Mathf.Cos(radian);
-            float y = Mathf.Sin(radian);
-            spawnPoint = new Vector3(x, y, 0) * distanceForScore;
-
-            Vector3 newPosition = new Vector3(transform.position.x + spawnPoint.x, deathUISpawnPoint.transform.position.y, transform.position.z + spawnPoint.z);
-
-            GameObject myDeathUI = Instantiate(deathUI, newPosition, Quaternion.identity);
+            GameObject myDeathUI = Instantiate(deathUI, deathUISpawnPoint.position, Quaternion.identity);
+            myDeathUI.GetComponent<LookAtPlayerScript>().MoveMe(transform.position);
             myDeathUI.GetComponent<LookAtPlayerScript>().SetMyMultiplierText(GameManager_LG2.Instance.GetMultiplier().ToString("0"));
             myDeathUI.GetComponent<LookAtPlayerScript>().SetMyScoreText(GameManager_LG2.Instance.GetScore().ToString("0"));
 
             GameManager_LG2.Instance.AddMultiplier();
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 

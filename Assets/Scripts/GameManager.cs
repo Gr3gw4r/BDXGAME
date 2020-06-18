@@ -185,6 +185,26 @@ public class GameManager : MonoBehaviour
         return GamesScore[indexGame];
     }
 
+    public int getHighScore(gamemodes myNewGM)
+    {
+        if (myNewGM == gamemodes.Sorciere)
+        {
+            return highScoreWitch;
+        }
+
+        if (myNewGM == gamemodes.Fantome)
+        {
+            return highScoreGhost;
+        }
+
+        if (myNewGM == gamemodes.LoupGarou)
+        {
+            return highScoreWerewolf;
+        }
+
+        return 0;
+    }
+
     public int getHighScore()
     {
         if (myGamemode == gamemodes.Sorciere)

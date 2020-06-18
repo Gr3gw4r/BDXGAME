@@ -5,23 +5,24 @@ using TMPro;
 
 public class LookAtPlayerScript : MonoBehaviour
 {
-    private GameObject player;
+    private Transform player;
     public TextMeshProUGUI myScore;
     public TextMeshProUGUI myMultiplier;
+
+    public float distanceFromPNJ;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = PlayerMovement.Instance.gameObject;
+        player = GameManager_LG2.Instance.GetCamera();
+
+        LookPlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 target = player.transform.position;
-        target.y = transform.position.y;
-        transform.LookAt(target);
-        transform.Rotate(0, 180, 0);
+        LookPlayer();
     }
 
     public void SetMyScoreText(string newScoreText)
@@ -36,6 +37,24 @@ public class LookAtPlayerScript : MonoBehaviour
 
     public void Destroyed()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
+    }
+
+    private void LookPlayer()
+    {
+        Vector3 target = player.position;
+        target.y = transform.position.y;
+        transform.LookAt(target);
+        transform.Rotate(0, 180, 0);
+    }
+
+    public void MoveMe(Vector3 ennemyPosition)
+    {
+        player = GameManager_LG2.Instance.GetCamera();
+        Vector3 myDestination = ennemyPosition - player.position;
+        myDestination.y = transform.position.y;
+        Vector3 finalDestination = transform.position + (myDestination * distanceFromPNJ);
+        finalDestination.y = transform.position.y;
+        transform.position = finalDestination;
     }
 }

@@ -16423,6 +16423,7 @@ MonoBehaviour:
   moveForward:
     actionPath: 
     needsReinit: 0
+  canRunLG: 0
 --- !u!138 &383841077
 FixedJoint:
   m_ObjectHideFlags: 0
@@ -25152,6 +25153,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1349374853, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: myGamemode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067839244, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: myGamemode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2070474682, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
     - {fileID: 330784902, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
@@ -31235,7 +31244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beforeStartObject: {fileID: 1477145540}
-  time: 150
+  time: 120
   objectsToSpawnMGhost:
   - myObject: {fileID: 1453213489}
     myPictures:
@@ -45632,6 +45641,7 @@ MonoBehaviour:
   moveForward:
     actionPath: 
     needsReinit: 0
+  canRunLG: 0
 --- !u!135 &1036884410
 SphereCollider:
   m_ObjectHideFlags: 0

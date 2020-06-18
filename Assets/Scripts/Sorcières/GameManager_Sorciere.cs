@@ -268,6 +268,9 @@ public class GameManager_Sorciere : MonoBehaviour
     {
         myScore += addValue;
         GameManager.Instance.AddTotalScore(addValue);
+
+        Debug.Log(myScore);
+        Debug.Log(GameManager.Instance.GetTotalScore());
         ShowScore();
     }
 

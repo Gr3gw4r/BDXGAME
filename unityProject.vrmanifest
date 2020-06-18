@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.bdxgame.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "D:\\logiciel\\jeux\\newnewBDX\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "D:\\logiciel\\jeux\\BDXFINAL\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "BDXGAME [Testing]"
