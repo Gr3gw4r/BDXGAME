@@ -12,9 +12,11 @@ public class DeathScreenUIManagerScript : MonoBehaviour
     void Start()
     {
         int myScore = GameManager.Instance.getLastScore();
-        int myHighscore = GameManager.Instance.getHighScore();
+        int myHighscore = GameManager.Instance.getHighScore()[0];
         scoreText.text = ("Score: ") + myScore.ToString("0");
         highscoreText.text = ("Meilleur Score: ") + myScore.ToString("0");
+
+        AudioManager.Instance.StopAllSound();
     }
 
     // Update is called once per frame

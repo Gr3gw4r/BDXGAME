@@ -15,24 +15,27 @@ public class GetHighScoreToUI : MonoBehaviour
     {
         myText = GetComponent<Text>();
 
-        int myHighScore = GameManager.Instance.getHighScore(myGM);
+        int[] myHighScores = GameManager.Instance.getHighScore(myGM);
 
         if (isEntire == true)
         {
-            myHighScore = GameManager.Instance.GetTotalScore();
+            myHighScores = GameManager.Instance.GetHighTotalScore();
         }
         else
         {
-            myHighScore = GameManager.Instance.getHighScore(myGM);
+            myHighScores = GameManager.Instance.getHighScore(myGM);
         }
 
-        if (myHighScore != 0)
+        for (int k = 0; k < transform.childCount && k < myHighScores.Length; k ++)
         {
-            myText.text = myHighScore.ToString("0");
-        }
-        else
-        {
-            myText.text = ("");
+            if (myHighScores[k] != 0)
+            {
+                transform.GetChild(k).GetComponent<Text>().text = myHighScores[k].ToString("0");
+            }
+            else
+            {
+                transform.GetChild(k).GetComponent<Text>().text = ("");
+            }
         }
     }
 

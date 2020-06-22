@@ -47,6 +47,11 @@ namespace Valve.VR.InteractionSystem
             {
                 if (useAction.GetStateDown(pose.inputSource) && hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() != null)
                 {
+                    if (TutoScript.Instance.GetTutoIndex() == 2)
+                    {
+                        TutoScript.Instance.ShowTuto();
+                    }
+
                     hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>().MakePhoto();
                 }
 
@@ -66,6 +71,11 @@ namespace Valve.VR.InteractionSystem
 
                 if (hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() != null)
                 {
+                    if (TutoScript.Instance.GetTutoIndex() == 1)
+                    {
+                        TutoScript.Instance.ShowTuto();
+                    }
+
                     GameManager_Fantome.Instance.GetStarted();
                 }
             }
