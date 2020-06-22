@@ -4,8 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public enum spells { Attack, Defend, TimeSlow}
-
 public class GameManager_Sorciere : MonoBehaviour
 {
     public static GameManager_Sorciere Instance;
@@ -78,6 +76,8 @@ public class GameManager_Sorciere : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.Instance.StopAllSound();
+        AudioManager.Instance.PlaySound("Music_S");
         shootStockActual = shootStock;
         timeActual = timer;
 
@@ -269,8 +269,6 @@ public class GameManager_Sorciere : MonoBehaviour
         myScore += addValue;
         GameManager.Instance.AddTotalScore(addValue);
 
-        Debug.Log(myScore);
-        Debug.Log(GameManager.Instance.GetTotalScore());
         ShowScore();
     }
 

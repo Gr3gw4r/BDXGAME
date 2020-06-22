@@ -56,6 +56,11 @@ public class ReloadSignScript : MonoBehaviour
 
                 if (actualPosition >= 5)
                 {
+                    if (TutoScript.Instance.GetTutoIndex() == 3)
+                    {
+                        TutoScript.Instance.ShowTuto();
+                    }
+
                     GameManager_Sorciere.Instance.Reload();
                     ResetPoints();
                 }

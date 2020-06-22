@@ -19,9 +19,11 @@ public class GameManager : MonoBehaviour
 
     public string deathScene;
 
-    private int highScoreWitch = 0;
-    private int highScoreGhost = 0;
-    private int highScoreWerewolf = 0;
+    public int[] highScoreWitch;
+    public int[] highScoreGhost;
+    public int[] highScoreWerewolf;
+
+    public int highScoreSize;
 
     public gamemodes myGamemode;
     public runmodes myRunmode;
@@ -34,7 +36,7 @@ public class GameManager : MonoBehaviour
     public gamemodes[] fullRunSet;
 
     private int totalScore = 0;
-    private int HighTotalScore = 0;
+    public int[] HighTotalScore;
 
     public int[] GamesScore;
 
@@ -53,10 +55,13 @@ public class GameManager : MonoBehaviour
 
         if (PlayerPrefs.HasKey("HighScoreWitch"))
         {
-            highScoreWitch = PlayerPrefs.GetInt("HighScoreWitch");
-            highScoreGhost = PlayerPrefs.GetInt("HighScoreGhost");
-            highScoreWerewolf = PlayerPrefs.GetInt("HighScoreWerewolf");
-            HighTotalScore = PlayerPrefs.GetInt("HighTotalScore");
+            for (int i = 0; i < highScoreSize; i++)
+            {
+                highScoreWitch[i] = PlayerPrefs.GetInt("HighScoreWitch" + i.ToString("0"), highScoreWitch[i]);
+                highScoreGhost[i] = PlayerPrefs.GetInt("HighScoreGhost" + i.ToString("0"), highScoreGhost[i]);
+                highScoreWerewolf[i] = PlayerPrefs.GetInt("HighScoreWerewolf" + i.ToString("0"), highScoreWerewolf[i]);
+                HighTotalScore[i] =  PlayerPrefs.GetInt("HighTotalScore" + i.ToString("0"), HighTotalScore[i]);
+            }
         }
         else
         {
@@ -119,33 +124,49 @@ public class GameManager : MonoBehaviour
 
         if (myRunmode == runmodes.full)
         {
-            if (totalScore > HighTotalScore)
+           for (int k = 0; k < HighTotalScore.Length; k ++)
             {
-                HighTotalScore = totalScore;
+                if (totalScore > HighTotalScore[k])
+                {
+                    HighTotalScore[k] = totalScore;
+                    k = HighTotalScore.Length;
+                }
             }
         }
 
         if (newMode == gamemodes.Sorciere)
         {
-            if (lastScore > highScoreWitch)
+            for (int l = 0; l < highScoreSize; l++)
             {
-                highScoreWitch = lastScore;
+                if (lastScore > highScoreWitch[l])
+                {
+                    highScoreWitch[l] = lastScore;
+                    l = HighTotalScore.Length;
+                }
             }
         }
 
         if (newMode == gamemodes.Fantome)
         {
-            if (lastScore > highScoreGhost)
+            for (int m = 0; m < highScoreSize; m++)
             {
-                highScoreGhost = lastScore;
+                if (lastScore > highScoreGhost[m])
+                {
+                    highScoreGhost[m] = lastScore;
+                    m = HighTotalScore.Length;
+                }
             }
         }
 
         if (newMode == gamemodes.LoupGarou)
         {
-            if (lastScore > highScoreWerewolf)
+            for (int n = 0; n < highScoreSize; n++)
             {
-                highScoreWerewolf = lastScore;
+                if (lastScore > highScoreWerewolf[n])
+                {
+                    highScoreWerewolf[n] = lastScore;
+                    n = HighTotalScore.Length;
+                }
             }
         }
 
@@ -159,10 +180,13 @@ public class GameManager : MonoBehaviour
 
     public void Save()
     {
-        PlayerPrefs.SetInt("HighScoreWitch", highScoreWitch);
-        PlayerPrefs.SetInt("HighScoreGhost", highScoreGhost);
-        PlayerPrefs.SetInt("HighScoreWerewolf", highScoreWerewolf);
-        PlayerPrefs.SetInt("HighTotalScore", HighTotalScore);
+        for (int i = 0; i < highScoreSize; i ++)
+        {
+            PlayerPrefs.SetInt("HighScoreWitch" + i.ToString("0"), highScoreWitch[i]);
+            PlayerPrefs.SetInt("HighScoreGhost" + i.ToString("0"), highScoreGhost[i]);
+            PlayerPrefs.SetInt("HighScoreWerewolf" + i.ToString("0"), highScoreWerewolf[i]);
+            PlayerPrefs.SetInt("HighTotalScore" + i.ToString("0"), HighTotalScore[i]);
+        }
     }
 
     public void SetGameMode(gamemodes newGamemode)
@@ -185,7 +209,7 @@ public class GameManager : MonoBehaviour
         return GamesScore[indexGame];
     }
 
-    public int getHighScore(gamemodes myNewGM)
+    public int[] getHighScore(gamemodes myNewGM)
     {
         if (myNewGM == gamemodes.Sorciere)
         {
@@ -202,10 +226,10 @@ public class GameManager : MonoBehaviour
             return highScoreWerewolf;
         }
 
-        return 0;
+        return highScoreWerewolf;
     }
 
-    public int getHighScore()
+    public int[] getHighScore()
     {
         if (myGamemode == gamemodes.Sorciere)
         {
@@ -222,7 +246,7 @@ public class GameManager : MonoBehaviour
             return highScoreWerewolf;
         }
 
-        return 0;
+        return highScoreWerewolf;
     }
 
     public void SetRunMode(runmodes newRunmode)
@@ -272,7 +296,7 @@ public class GameManager : MonoBehaviour
         return totalScore;
     }
 
-    public int GetHighTotalScore()
+    public int[] GetHighTotalScore()
     {
         return HighTotalScore;
     }

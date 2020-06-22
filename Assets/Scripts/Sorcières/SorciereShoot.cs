@@ -114,6 +114,11 @@ public class SorciereShoot : MonoBehaviour
 
         if ((shieldKey.GetStateDown(pose.inputSource)) && (GameManager_Sorciere.Instance.GetDefending() == false))
         {
+            if (TutoScript.Instance.GetTutoIndex() == 2)
+            {
+                TutoScript.Instance.ShowTuto();
+            }
+
             shield.SetActive(true);
             isDefending = true;
             GameManager_Sorciere.Instance.SetDefending(true);
@@ -129,6 +134,11 @@ public class SorciereShoot : MonoBehaviour
 
     public void Shoot()
     {
+        if (TutoScript.Instance.GetTutoIndex() == 1)
+        {
+            TutoScript.Instance.ShowTuto();
+        }
+
         GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
         newBullet.transform.rotation = transform.rotation;
         GameManager_Sorciere.Instance.SetBulletNumber(-1);

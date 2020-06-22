@@ -44,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (CanMove == true)
         {
+            if (TutoScript.Instance.GetTutoIndex() == 1)
+            {
+                TutoScript.Instance.ShowTuto();
+            }
+
             Vector3 myDestination = cameraTransform.position + cameraTransform.forward;
             myDestination.y = transform.position.y;
             Vector3 myPosition = cameraTransform.position;

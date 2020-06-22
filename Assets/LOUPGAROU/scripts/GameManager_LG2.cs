@@ -64,9 +64,10 @@ public class GameManager_LG2 : MonoBehaviour
 
         SpawnBarrels();
         SpawnPNJ();
+
+        AudioManager.Instance.StopAllSound();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (time > 0)
