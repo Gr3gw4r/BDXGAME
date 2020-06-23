@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/LOBBY/DeathScene.unity
     guid: 71849390a253e5e45b36be0166000f5e
   - enabled: 1
-    path: "Assets/FANTOME/NewLD_Fant\xF4me.unity"
-    guid: bf25c74030ed11c46a39a2ba78dbc0d5
-  - enabled: 1
     path: Assets/LOUPGAROU/Loup-Garou.unity
     guid: 924c26d2c266155418517998297051f7
+  - enabled: 1
+    path: Assets/FANTOME/NewNewLDFantome.unity
+    guid: bdf039c4d08b36748b504149a855ec54
   m_configObjects: {}

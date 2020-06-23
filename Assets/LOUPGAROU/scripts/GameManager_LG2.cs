@@ -75,10 +75,23 @@ public class GameManager_LG2 : MonoBehaviour
         SpawnPNJ();
 
         AudioManager.Instance.StopAllSound();
+
+        timeRandomLineActual = timeRandomLine + Random.Range(-randomTimeToVoiceLine, randomTimeToVoiceLine);
     }
 
     void Update()
     {
+        if (timeRandomLineActual > 0)
+        {
+            timeRandomLineActual -= Time.deltaTime;
+
+            if (timeRandomLineActual <= 0)
+            {
+                AudioManager.Instance.PlaySound(randomVoiceLine[Random.Range(0, randomVoiceLine.Length)]);
+                timeRandomLineActual = timeRandomLine + Random.Range(-randomTimeToVoiceLine, randomTimeToVoiceLine);
+            }
+        }
+
         if (time > 0)
         {
             timeActual -= Time.deltaTime;
