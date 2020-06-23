@@ -24,9 +24,6 @@ public class GameManager_Fantome : MonoBehaviour
     private GameObject objectToSpawn;
     public SpriteRenderer[] emptys;
 
-    public float resetCD;
-    private float CDActual = 0;
-
     private int score = 0;
 
     public static GameManager_Fantome Instance;
@@ -55,6 +52,26 @@ public class GameManager_Fantome : MonoBehaviour
 
     private bool gaveScore;
 
+    public float timeRandomLine;
+    private float timeRandomLineActual;
+
+    public float randomTimeToVoiceLine;
+
+    public string[] randomVoiceLine;
+
+    private bool voiceLineTime = false;
+
+    public string startVoiceLine;
+    private bool startVoiceLineDid = false;
+
+    public string lowTimeVoiceLine;
+    private bool lowTimeVoiceLineDid = false;
+
+    public string[] badObjectVoiceLine;
+    public string[] goodObjectVoiceLine;
+
+    public string photoMadeVoiceLine;
+
     private void Awake()
     {
         if (Instance == null)
@@ -77,11 +94,24 @@ public class GameManager_Fantome : MonoBehaviour
         GameManager.Instance.AddGamesMade();
 
         timeActual = time;
+
+        timeRandomLineActual = timeRandomLine + Random.Range(-randomTimeToVoiceLine, randomTimeToVoiceLine);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (timeRandomLineActual > 0)
+        {
+            timeRandomLineActual -= Time.deltaTime;
+
+            if (timeRandomLineActual <= 0)
+            {
+                AudioManager.Instance.PlaySound(randomVoiceLine[Random.Range(0, randomVoiceLine.Length)]);
+                timeRandomLineActual = timeRandomLine + Random.Range(-randomTimeToVoiceLine, randomTimeToVoiceLine);
+            }
+        }
+
         if (timeActual <= 0)
         {
             if (gaveScore == false)
@@ -97,14 +127,17 @@ public class GameManager_Fantome : MonoBehaviour
             if (isStarted == true)
             {
                 timeActual -= Time.deltaTime;
-                CDActual += Time.deltaTime;
                 CDFGhostActual += Time.deltaTime;
-            }
-        }
 
-        if (CDActual >= resetCD)
-        {
-            SetEmptys();
+                if (timeActual <= 20)
+                {
+                    if (lowTimeVoiceLineDid == false)
+                    {
+                        AudioManager.Instance.PlaySound(lowTimeVoiceLine);
+                        lowTimeVoiceLineDid = true;
+                    }
+                }
+            }
         }
 
         if (CDFGhostActual >= CDFGhost)
@@ -120,6 +153,12 @@ public class GameManager_Fantome : MonoBehaviour
 
     public void GetStarted()
     {
+        if (startVoiceLineDid == false)
+        {
+            AudioManager.Instance.PlaySound(startVoiceLine);
+            startVoiceLineDid = true;
+        }
+
         isStarted = true;
         beforeStartObject.SetActive(false);
     }
@@ -148,8 +187,6 @@ public class GameManager_Fantome : MonoBehaviour
             {
                 emptys[i].sprite = objectsToSpawnMGhost[indexToSpawn].myPictures[i];
             }
-
-            CDActual = 0;
         }
     }
 
@@ -159,12 +196,13 @@ public class GameManager_Fantome : MonoBehaviour
         {
             if (myGameObject == objectToSpawn)
             {
+                AudioManager.Instance.PlaySound(goodObjectVoiceLine[Random.Range(0, goodObjectVoiceLine.Length)]);
                 Instantiate(goodObjectParticles, myGameObject.transform.position, Quaternion.identity);
                 SpawnMGhost();
-                CDActual -= timeToCatchMGhost;
             }
             else if (myGameObject != objectToSpawn)
             {
+                AudioManager.Instance.PlaySound(badObjectVoiceLine[Random.Range(0, badObjectVoiceLine.Length)]);
                 Instantiate(badObjectParticles, myGameObject.transform.position, Quaternion.identity);
                 Invoke("SetEmptys", timeFrozenEmptys);
             }
@@ -176,6 +214,11 @@ public class GameManager_Fantome : MonoBehaviour
 
     public void AddScore(int newScore)
     {
+        if (Random.Range(0, 10f) > 7)
+        {
+            AudioManager.Instance.PlaySound(photoMadeVoiceLine);
+        }
+
         score += newScore;
         GameManager.Instance.AddTotalScore(newScore);
     }

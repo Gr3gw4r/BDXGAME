@@ -1009,6 +1009,104 @@ MonoBehaviour:
     source: {fileID: 0}
     isMusic: 0
     isLooping: 0
+  - name: Cacher
+    clip: {fileID: 8300000, guid: 6c0d0e440bca53d4d8815f30c952dd5e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Etrange
+    clip: {fileID: 8300000, guid: 9268bb0f65dd938458bc3910545340d4, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Presence
+    clip: {fileID: 8300000, guid: 01eab88c01c152040ab77d6428b30174, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Venir
+    clip: {fileID: 8300000, guid: e833c11159f34a2459f2dd358a204b16, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Yeux
+    clip: {fileID: 8300000, guid: 4644279c278f0b542b871a44c9c6d9e6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Tableaux
+    clip: {fileID: 8300000, guid: 5e3780d66348dc64da774e9705b6aaf0, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Batterie
+    clip: {fileID: 8300000, guid: 45bd5ac6843378545894e601d0260078, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Chose
+    clip: {fileID: 8300000, guid: a37b74efcc700c94cb8c0eeec4e7b0d6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Objet
+    clip: {fileID: 8300000, guid: ce34de8f81337ac4683152d148f53f54, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Retourner
+    clip: {fileID: 8300000, guid: 817e017895f0a98429ccb7dc28b23c1d, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Tiens
+    clip: {fileID: 8300000, guid: 0b9623cafe49c824fa4d899e4aa4c20b, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Sentir
+    clip: {fileID: 8300000, guid: 635253440676d5f43a8d980a124a5860, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Existence
+    clip: {fileID: 8300000, guid: 9c9d2fc46f4b01f4692d3e8e77a02dd6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Batterie
+    clip: {fileID: 8300000, guid: 45bd5ac6843378545894e601d0260078, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
 --- !u!4 &116224903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 456960, guid: 28b56993a0977004882db8754d3904ee,
@@ -7072,6 +7170,11 @@ PrefabInstance:
         type: 3}
       propertyPath: highScoreSize
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 356453999944149988, guid: 246e22c8bc6cce042aaaf15826653443,
+        type: 3}
+      propertyPath: werewolfScene
+      value: Loup-Garou
       objectReference: {fileID: 0}
     - target: {fileID: 356453999944149989, guid: 246e22c8bc6cce042aaaf15826653443,
         type: 3}
