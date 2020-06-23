@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5040837359822710365}
   - component: {fileID: 5040837359822710367}
   - component: {fileID: 5040837359822710356}
+  - component: {fileID: 4246314436143254906}
   m_Layer: 0
   m_Name: HamBonus
   m_TagString: Ham
@@ -31,13 +32,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6175382883821331037}
-  m_LocalRotation: {x: 0.38268322, y: -0, z: -0, w: 0.9238797}
+  m_LocalRotation: {x: -0.00000008940696, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.029, y: -0.219, z: -0.749}
   m_LocalScale: {x: 0.644265, y: 0.644265, z: 0.644265}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45.000004, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6175382883818184323
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -247,3 +248,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayToUse: 80
+--- !u!95 &4246314436143254906
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6175382883821331037}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d7b76842927fb2140b94f0ee8aa849c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
