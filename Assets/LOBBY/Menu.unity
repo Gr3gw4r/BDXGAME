@@ -1038,7 +1038,7 @@ MonoBehaviour:
     isMusic: 0
     isLooping: 0
   - name: Yeux
-    clip: {fileID: 8300000, guid: 4644279c278f0b542b871a44c9c6d9e6, type: 3}
+    clip: {fileID: 8300000, guid: dfd3e495c4d030448a6380d014a57327, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
@@ -7175,6 +7175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: werewolfScene
       value: Loup-Garou
+      objectReference: {fileID: 0}
+    - target: {fileID: 356453999944149988, guid: 246e22c8bc6cce042aaaf15826653443,
+        type: 3}
+      propertyPath: ghostScene
+      value: NewNewLDFantome
       objectReference: {fileID: 0}
     - target: {fileID: 356453999944149989, guid: 246e22c8bc6cce042aaaf15826653443,
         type: 3}

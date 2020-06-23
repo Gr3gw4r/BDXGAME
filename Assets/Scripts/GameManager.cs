@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
 
     public int[] GamesScore;
 
+    private bool canEnterScore = true;
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -85,6 +87,8 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delayToSwitchScene);
 
+        canEnterScore = true;
+
         myGamemode = newMode;
 
         if (newMode == gamemodes.Hub)
@@ -118,59 +122,64 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delayToSwitchScene);
 
-        lastScore = newLastScore;
-
-        GamesScore[gamesMade - 1] = lastScore;
-
-        if (myRunmode == runmodes.full)
+        if (canEnterScore == true)
         {
-           for (int k = 0; k < HighTotalScore.Length; k ++)
+            lastScore = newLastScore;
+
+            GamesScore[gamesMade - 1] = lastScore;
+
+            if (myRunmode == runmodes.full)
             {
-                if (totalScore > HighTotalScore[k])
+                for (int k = 0; k < HighTotalScore.Length; k++)
                 {
-                    HighTotalScore[k] = totalScore;
-                    k = HighTotalScore.Length;
+                    if (totalScore > HighTotalScore[k])
+                    {
+                        HighTotalScore[k] = totalScore;
+                        k = HighTotalScore.Length;
+                    }
                 }
             }
-        }
 
-        if (newMode == gamemodes.Sorciere)
-        {
-            for (int l = 0; l < highScoreSize; l++)
+            if (newMode == gamemodes.Sorciere)
             {
-                if (lastScore > highScoreWitch[l])
+                for (int l = 0; l < highScoreSize; l++)
                 {
-                    highScoreWitch[l] = lastScore;
-                    l = HighTotalScore.Length;
+                    if (lastScore > highScoreWitch[l])
+                    {
+                        highScoreWitch[l] = lastScore;
+                        l = HighTotalScore.Length;
+                    }
                 }
             }
-        }
 
-        if (newMode == gamemodes.Fantome)
-        {
-            for (int m = 0; m < highScoreSize; m++)
+            if (newMode == gamemodes.Fantome)
             {
-                if (lastScore > highScoreGhost[m])
+                for (int m = 0; m < highScoreSize; m++)
                 {
-                    highScoreGhost[m] = lastScore;
-                    m = HighTotalScore.Length;
+                    if (lastScore > highScoreGhost[m])
+                    {
+                        highScoreGhost[m] = lastScore;
+                        m = HighTotalScore.Length;
+                    }
                 }
             }
-        }
 
-        if (newMode == gamemodes.LoupGarou)
-        {
-            for (int n = 0; n < highScoreSize; n++)
+            if (newMode == gamemodes.LoupGarou)
             {
-                if (lastScore > highScoreWerewolf[n])
+                for (int n = 0; n < highScoreSize; n++)
                 {
-                    highScoreWerewolf[n] = lastScore;
-                    n = HighTotalScore.Length;
+                    if (lastScore > highScoreWerewolf[n])
+                    {
+                        highScoreWerewolf[n] = lastScore;
+                        n = HighTotalScore.Length;
+                    }
                 }
             }
-        }
 
-        SceneManager.LoadSceneAsync(deathScene);
+            canEnterScore = false;
+
+            SceneManager.LoadSceneAsync(deathScene);
+        }
     }
 
     public void AddTotalScore(int newValue)

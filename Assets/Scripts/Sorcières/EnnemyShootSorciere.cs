@@ -38,6 +38,7 @@ public class EnnemyShootSorciere : MonoBehaviour
 
         if (other.gameObject.CompareTag("Shield"))
         {
+            AudioManager.Instance.PlaySound("Block");
             Instantiate(destroyedParticles, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

@@ -40,6 +40,8 @@ public class Enemy : MonoBehaviour
 
         int myModelIndex = Random.Range(0, myModelsParent.childCount);
 
+        Debug.Log(myModelIndex);
+
         myModelsParent.GetChild(myModelIndex).gameObject.SetActive(true);
         myAnimator = myModelsParent.GetChild(myModelIndex).gameObject.GetComponent<Animator>();
 

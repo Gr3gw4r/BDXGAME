@@ -56,7 +56,7 @@ public class ReloadSignScript : MonoBehaviour
 
                 if (actualPosition >= 5)
                 {
-                    if (TutoScript.Instance.GetTutoIndex() == 3)
+                    if (TutoScript.Instance.GetTutoIndex() == 4)
                     {
                         TutoScript.Instance.ShowTuto();
                     }

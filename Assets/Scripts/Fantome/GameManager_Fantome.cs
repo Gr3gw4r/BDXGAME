@@ -196,6 +196,11 @@ public class GameManager_Fantome : MonoBehaviour
         {
             if (myGameObject == objectToSpawn)
             {
+                if (TutoScript.Instance.GetTutoIndex() == 3)
+                {
+                    TutoScript.Instance.ShowTuto();
+                }
+
                 AudioManager.Instance.PlaySound(goodObjectVoiceLine[Random.Range(0, goodObjectVoiceLine.Length)]);
                 Instantiate(goodObjectParticles, myGameObject.transform.position, Quaternion.identity);
                 SpawnMGhost();

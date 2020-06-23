@@ -113,12 +113,10 @@ public class GameManager_Sorciere : MonoBehaviour
 
         if (timeRandomLineActual > 0)
         {
-            Debug.Log(timeRandomLineActual);
             timeRandomLineActual -= Time.deltaTime;
 
             if (timeRandomLineActual <= 0)
             {
-                Debug.Log("Salut");
                 AudioManager.Instance.PlaySound(randomVoiceLine[Random.Range(0, randomVoiceLine.Length)]);
                 timeRandomLineActual = timeRandomLine + Random.Range(-randomTimeToVoiceLine, randomTimeToVoiceLine);
             }
@@ -281,6 +279,8 @@ public class GameManager_Sorciere : MonoBehaviour
 
     public void SetPriestNumber(int AddValue)
     {
+        Debug.Log(priestNumber);
+
         priestNumber += AddValue;
 
         if ((priestNumber <= 0) && (pauseAllowed == true))

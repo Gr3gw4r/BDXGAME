@@ -8,6 +8,9 @@ public class PhotoManager : MonoBehaviour
 
     public Camera photo;
 
+    public GameObject flash;
+    public float timeFlash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,9 @@ public class PhotoManager : MonoBehaviour
     public void MakePhoto()
     {
         GameObject[] ghosts = GameObject.FindGameObjectsWithTag("Ghost");
+
+        flash.SetActive(true);
+        Invoke("TurnOffFlash", timeFlash);
 
         foreach (GameObject myGhosts in ghosts)
         {
@@ -46,5 +52,10 @@ public class PhotoManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void TurnOffFlash()
+    {
+        flash.SetActive(false);
     }
 }
