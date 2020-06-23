@@ -967,6 +967,48 @@ MonoBehaviour:
     source: {fileID: 0}
     isMusic: 0
     isLooping: 0
+  - name: Bouclier
+    clip: {fileID: 8300000, guid: 4b5d9392550da1d4c84e67abc3f05293, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Figer
+    clip: {fileID: 8300000, guid: 6395a0fc473006344a3c91a05f8fb5db, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Munitions
+    clip: {fileID: 8300000, guid: fae9b0fa82215d44db374248e0d65500, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Temps
+    clip: {fileID: 8300000, guid: 2f822f0811f87b24eb568fca87175136, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Recharge
+    clip: {fileID: 8300000, guid: ef141366337ea9f4d9677843563000de, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Ordre
+    clip: {fileID: 8300000, guid: 4644279c278f0b542b871a44c9c6d9e6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
 --- !u!4 &116224903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 456960, guid: 28b56993a0977004882db8754d3904ee,
