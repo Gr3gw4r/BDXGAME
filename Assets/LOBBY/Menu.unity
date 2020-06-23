@@ -11768,7 +11768,7 @@ PrefabInstance:
     - target: {fileID: 726368572495668304, guid: 494135e056fe2a3499403e418de1ce60,
         type: 3}
       propertyPath: switchToScene
-      value: NewNewNewLoupGarou
+      value: Loup-Garou
       objectReference: {fileID: 0}
     - target: {fileID: 1511353219285932206, guid: 494135e056fe2a3499403e418de1ce60,
         type: 3}

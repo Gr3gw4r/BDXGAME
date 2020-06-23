@@ -47,6 +47,11 @@ public class GameManager_LG2 : MonoBehaviour
 
     private bool voiceLineTime = false;
 
+    public GameObject addScoresTextObject;
+
+    public float timeShowingAddScore;
+    private float timeShowingAddScoreActual = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -81,13 +86,25 @@ public class GameManager_LG2 : MonoBehaviour
 
     void Update()
     {
+        if (timeShowingAddScoreActual > 0)
+        {
+            Debug.Log("1");
+            timeShowingAddScoreActual -= Time.deltaTime;
+        }
+
+        if (timeShowingAddScoreActual <= 0)
+        {
+            Debug.Log("2");
+            addScoresTextObject.GetComponent<Animator>().SetBool("IsShowing", false);
+        }
+
         if (timeRandomLineActual > 0)
         {
             timeRandomLineActual -= Time.deltaTime;
 
             if (timeRandomLineActual <= 0)
             {
-                AudioManager.Instance.PlaySound(randomVoiceLine[Random.Range(0, randomVoiceLine.Length)]);
+                //AudioManager.Instance.PlaySound(randomVoiceLine[Random.Range(0, randomVoiceLine.Length)]);
                 timeRandomLineActual = timeRandomLine + Random.Range(-randomTimeToVoiceLine, randomTimeToVoiceLine);
             }
         }
@@ -190,8 +207,6 @@ public class GameManager_LG2 : MonoBehaviour
     {
         score += addValue * multiplierScore;
         GameManager.Instance.AddTotalScore(addValue * multiplierScore);
-        Debug.Log(score);
-        Debug.Log(GameManager.Instance.GetTotalScore());
         ShowScore();
     }
 
@@ -213,5 +228,12 @@ public class GameManager_LG2 : MonoBehaviour
     private void ShowTime()
     {
         timeSlider.value = timeActual / time;
+    }
+
+    public GameObject GetAddScoresTextObject()
+    {
+        timeShowingAddScoreActual = timeShowingAddScore;
+        addScoresTextObject.GetComponent<Animator>().SetBool("IsShowing", true);
+        return addScoresTextObject;
     }
 }

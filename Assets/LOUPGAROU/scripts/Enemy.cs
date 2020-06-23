@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
@@ -86,10 +87,10 @@ public class Enemy : MonoBehaviour
 
             GameManager_LG2.Instance.AddScore(scoreValue);
 
-            GameObject myDeathUI = Instantiate(deathUI, deathUISpawnPoint.position, Quaternion.identity);
-            myDeathUI.GetComponent<LookAtPlayerScript>().MoveMe(transform.position);
-            myDeathUI.GetComponent<LookAtPlayerScript>().SetMyMultiplierText(GameManager_LG2.Instance.GetMultiplier().ToString("0"));
-            myDeathUI.GetComponent<LookAtPlayerScript>().SetMyScoreText(GameManager_LG2.Instance.GetScore().ToString("0"));
+            var myUI = GameManager_LG2.Instance.GetAddScoresTextObject();
+
+            myUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = GameManager_LG2.Instance.GetScore().ToString("0");
+            myUI.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("x") + GameManager_LG2.Instance.GetMultiplier().ToString("0");
 
             GameManager_LG2.Instance.AddMultiplier();
             Destroy(gameObject);
