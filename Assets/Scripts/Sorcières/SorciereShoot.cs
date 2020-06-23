@@ -93,6 +93,7 @@ public class SorciereShoot : MonoBehaviour
             {
                 if (isReloadingReload == false)
                 {
+                    AudioManager.Instance.PlaySound("Ordre");
                     reloadParticles.SetActive(true);
                     reloadActualObject = Instantiate(reloadPattern, reloadSignSpawnPoint.position, Quaternion.identity);
                     reloadActualObject.transform.LookAt(new Vector3(GameManager_Sorciere.Instance.GetPlayerHead().position.x, reloadActualObject.transform.position.y, GameManager_Sorciere.Instance.GetPlayerHead().position.z));
@@ -100,19 +101,26 @@ public class SorciereShoot : MonoBehaviour
                     CDReloadActual = CDReload;
                 }
             }
-            else if (reloadKey.GetLastStateUp(pose.inputSource))
-            {
-                reloadParticles.SetActive(false);
+        }
 
-                if (reloadActualObject != null)
-                {
-                    Destroy(reloadActualObject);
-                }
+        if (reloadKey.GetLastStateUp(pose.inputSource))
+        {
+            reloadParticles.SetActive(false);
+
+            if (reloadActualObject != null)
+            {
+                Destroy(reloadActualObject);
             }
         }
 
         if ((shieldKey.GetStateDown(pose.inputSource)) && (GameManager_Sorciere.Instance.GetDefending() == false))
         {
+            if (TutoScript.Instance.GetTutoIndex() == 2)
+            {
+                AudioManager.Instance.PlaySound("Recharge");
+                TutoScript.Instance.ShowTuto();
+            }
+
             shield.SetActive(true);
             isDefending = true;
             GameManager_Sorciere.Instance.SetDefending(true);
@@ -128,6 +136,12 @@ public class SorciereShoot : MonoBehaviour
 
     public void Shoot()
     {
+        if (TutoScript.Instance.GetTutoIndex() == 1)
+        {
+            AudioManager.Instance.PlaySound("Bouclier");
+            TutoScript.Instance.ShowTuto();
+        }
+
         GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
         newBullet.transform.rotation = transform.rotation;
         GameManager_Sorciere.Instance.SetBulletNumber(-1);

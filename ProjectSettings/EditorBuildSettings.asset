@@ -9,18 +9,15 @@ EditorBuildSettings:
     path: Assets/LOBBY/Menu.unity
     guid: 7b6f4b084fd38d14cbc813f96bfc8596
   - enabled: 1
-    path: Assets/LOBBY/HUB_placeHolder.unity
-    guid: 3c2641a49822de646ba5fd206f8e6caf
-  - enabled: 1
     path: Assets/SORCIERE/LD_Sorciere.unity
     guid: 4409c0452c3048d49b20075b0f334cf2
   - enabled: 1
     path: Assets/LOBBY/DeathScene.unity
     guid: 71849390a253e5e45b36be0166000f5e
   - enabled: 1
-    path: "Assets/FANTOME/NewLD_Fant\xF4me.unity"
-    guid: bf25c74030ed11c46a39a2ba78dbc0d5
-  - enabled: 1
-    path: Assets/LOUPGAROU/NewNewNewLoupGarou.unity
+    path: Assets/LOUPGAROU/Loup-Garou.unity
     guid: 924c26d2c266155418517998297051f7
+  - enabled: 1
+    path: Assets/FANTOME/NewNewLDFantome.unity
+    guid: bdf039c4d08b36748b504149a855ec54
   m_configObjects: {}

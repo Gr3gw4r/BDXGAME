@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myScore: {fileID: 7485586656348142748}
   myMultiplier: {fileID: 3863608039614856017}
+  distanceFromPNJ: 5.5
 --- !u!95 &-8252350494601323974
 Animator:
   serializedVersion: 3

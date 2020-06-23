@@ -22,6 +22,7 @@ public class GameManager_LG2 : MonoBehaviour
     private float timeActual;
 
     public GameObject target;
+    public Transform camera;
 
     public GameObject barrelObject;
     public int barrelNumber;
@@ -36,6 +37,15 @@ public class GameManager_LG2 : MonoBehaviour
     private int multiplierScore = 1;
     public float multiplierScoreDuration;
     private float multiplierScoreDurationActual = 0;
+
+    public float timeRandomLine;
+    private float timeRandomLineActual;
+
+    public float randomTimeToVoiceLine;
+
+    public string[] randomVoiceLine;
+
+    private bool voiceLineTime = false;
 
     private void Awake()
     {
@@ -63,11 +73,25 @@ public class GameManager_LG2 : MonoBehaviour
 
         SpawnBarrels();
         SpawnPNJ();
+
+        AudioManager.Instance.StopAllSound();
+
+        timeRandomLineActual = timeRandomLine + Random.Range(-randomTimeToVoiceLine, randomTimeToVoiceLine);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (timeRandomLineActual > 0)
+        {
+            timeRandomLineActual -= Time.deltaTime;
+
+            if (timeRandomLineActual <= 0)
+            {
+                AudioManager.Instance.PlaySound(randomVoiceLine[Random.Range(0, randomVoiceLine.Length)]);
+                timeRandomLineActual = timeRandomLine + Random.Range(-randomTimeToVoiceLine, randomTimeToVoiceLine);
+            }
+        }
+
         if (time > 0)
         {
             timeActual -= Time.deltaTime;
@@ -142,6 +166,11 @@ public class GameManager_LG2 : MonoBehaviour
         return target;
     }
 
+    public Transform GetCamera()
+    {
+        return camera;
+    }
+
     public GameObject GetBarrel()
     {
         return barrelObject;
@@ -161,6 +190,8 @@ public class GameManager_LG2 : MonoBehaviour
     {
         score += addValue * multiplierScore;
         GameManager.Instance.AddTotalScore(addValue * multiplierScore);
+        Debug.Log(score);
+        Debug.Log(GameManager.Instance.GetTotalScore());
         ShowScore();
     }
 

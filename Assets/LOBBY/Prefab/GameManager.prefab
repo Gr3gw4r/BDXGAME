@@ -46,7 +46,7 @@ MonoBehaviour:
   delayToSwitchScene: 1
   hubScene: HUB_placeHolder
   witchScene: LD_Sorciere
-  werewolfScene: LoupGarou_LD_v2
+  werewolfScene: NewNewNewLoupGarou
   ghostScene: "NewLD_Fant\xF4me"
   menuScene: Menu
   deathScene: DeathScene

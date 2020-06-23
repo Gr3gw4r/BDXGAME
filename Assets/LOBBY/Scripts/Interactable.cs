@@ -22,6 +22,8 @@ namespace Valve.VR.InteractionSystem
 
         private Hand hand;
 
+        public bool canRunLG = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -33,16 +35,23 @@ namespace Valve.VR.InteractionSystem
         // Update is called once per frame
         void Update()
         {
-
-            if (useAction.GetState(pose.inputSource) && (myGamemode == gamemodes.LoupGarou))
+            if ((myGamemode == gamemodes.LoupGarou) && (moveForward.GetState(pose.inputSource)))
             {
-                PlayerMovement.Instance.MoveForward();
+                if (canRunLG == true)
+                {
+                    PlayerMovement.Instance.MoveForward();
+                }
             }
 
             if (hand.currentAttachedObject != null)
             {
                 if (useAction.GetStateDown(pose.inputSource) && hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() != null)
                 {
+                    if (TutoScript.Instance.GetTutoIndex() == 2)
+                    {
+                        TutoScript.Instance.ShowTuto();
+                    }
+
                     hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>().MakePhoto();
                 }
 
@@ -62,18 +71,12 @@ namespace Valve.VR.InteractionSystem
 
                 if (hand.currentAttachedObject.gameObject.GetComponent<PhotoManager>() != null)
                 {
+                    if (TutoScript.Instance.GetTutoIndex() == 1)
+                    {
+                        TutoScript.Instance.ShowTuto();
+                    }
+
                     GameManager_Fantome.Instance.GetStarted();
-                }
-
-                if ((myGamemode == gamemodes.LoupGarou) && (moveForward.GetStateDown(pose.inputSource)))
-                {
-                    Debug.Log("salut");
-                    PlayerMovement.Instance.MoveForward();
-                }
-
-                if (moveForward.GetStateDown(pose.inputSource))
-                {
-
                 }
             }
         }

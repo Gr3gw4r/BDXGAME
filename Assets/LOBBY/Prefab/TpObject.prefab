@@ -65,8 +65,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Retourner chez le luthier
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0c6c2e337a7fdfa4795717081f6c822f, type: 2}
+  m_sharedMaterial: {fileID: 6539228355432654689, guid: 0c6c2e337a7fdfa4795717081f6c822f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -91,7 +92,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 21.6
+  m_fontSize: 19.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -355,8 +356,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.26191562, y: 0.5025773, z: 0.57373524}
+  m_Center: {x: -0.06750795, y: 0.08362746, z: 0.07833004}
 --- !u!114 &7734132079607734596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,8 +519,8 @@ MonoBehaviour:
   myText: {fileID: 26574790}
   hubText: Retourner chez le luthier
   replayText: Rejouer
-  witchText: "Sorci\xE8re"
-  ghostText: "Fant\xF4me"
+  witchText: Sorciere
+  ghostText: Fantome
   werewolfText: Loup-Garou
   MenuText: Menu
 --- !u!1 &9064134491201067280

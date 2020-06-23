@@ -9,6 +9,7 @@ using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+using UnityEngine.SceneManagement;
 
 namespace Valve.VR.InteractionSystem
 {
@@ -221,7 +222,7 @@ namespace Valve.VR.InteractionSystem
 		{
 			if ( !string.IsNullOrEmpty( switchToScene ) )
 			{
-				Debug.Log("<b>[SteamVR Interaction]</b> TeleportPoint: Hook up your level loading logic to switch to new scene: " + switchToScene, this);
+                SceneManager.LoadSceneAsync(switchToScene);
 			}
 			else
 			{
