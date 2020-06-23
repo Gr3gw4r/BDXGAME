@@ -13048,7 +13048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 302946170}
-  timer: 20
+  timer: 120
   shoot: {fileID: 5905704711431476556, guid: 6a6a8786e2f02b643b6611573eeda3d4, type: 3}
   CDsoldier: 0.2
   shootStock: 15
@@ -13068,6 +13068,14 @@ MonoBehaviour:
   scoreText: {fileID: 2054782489}
   playerHead: {fileID: 1680871255}
   rightHandNoStock: {fileID: 1716587814}
+  timeRandomLine: 20
+  randomTimeToVoiceLine: 5
+  randomVoiceLine:
+  - Bras
+  - Concentre
+  - Battre
+  - TirerPretre
+  - SatanePretre
 --- !u!4 &948158194
 Transform:
   m_ObjectHideFlags: 0

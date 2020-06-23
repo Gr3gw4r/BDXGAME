@@ -30,8 +30,6 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
 
-    public Sound[] voiceLineSorciere;
-
     private float soundVolume;
     private float musicVolume;
 

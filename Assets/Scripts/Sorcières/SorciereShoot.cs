@@ -93,6 +93,7 @@ public class SorciereShoot : MonoBehaviour
             {
                 if (isReloadingReload == false)
                 {
+                    AudioManager.Instance.PlaySound("Ordre");
                     reloadParticles.SetActive(true);
                     reloadActualObject = Instantiate(reloadPattern, reloadSignSpawnPoint.position, Quaternion.identity);
                     reloadActualObject.transform.LookAt(new Vector3(GameManager_Sorciere.Instance.GetPlayerHead().position.x, reloadActualObject.transform.position.y, GameManager_Sorciere.Instance.GetPlayerHead().position.z));
@@ -116,6 +117,7 @@ public class SorciereShoot : MonoBehaviour
         {
             if (TutoScript.Instance.GetTutoIndex() == 2)
             {
+                AudioManager.Instance.PlaySound("Recharge");
                 TutoScript.Instance.ShowTuto();
             }
 
@@ -136,6 +138,7 @@ public class SorciereShoot : MonoBehaviour
     {
         if (TutoScript.Instance.GetTutoIndex() == 1)
         {
+            AudioManager.Instance.PlaySound("Bouclier");
             TutoScript.Instance.ShowTuto();
         }
 

@@ -932,6 +932,41 @@ MonoBehaviour:
     source: {fileID: 0}
     isMusic: 1
     isLooping: 1
+  - name: SatanePretre
+    clip: {fileID: 8300000, guid: 6987d44274584644981a6686f259250f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Concentre
+    clip: {fileID: 8300000, guid: 8e33c3d567eedeb439e02121ff1e9377, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Battre
+    clip: {fileID: 8300000, guid: 4da8cf6fe4f44d34b873565a456e3364, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: TirerPretre
+    clip: {fileID: 8300000, guid: 1d5cf15381d82d44d863957682c8707c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
+  - name: Bras
+    clip: {fileID: 8300000, guid: 7792b500fb9ef934c8cea158f010847d, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isMusic: 0
+    isLooping: 0
 --- !u!4 &116224903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 456960, guid: 28b56993a0977004882db8754d3904ee,

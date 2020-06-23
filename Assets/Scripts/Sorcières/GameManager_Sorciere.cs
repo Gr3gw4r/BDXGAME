@@ -61,6 +61,16 @@ public class GameManager_Sorciere : MonoBehaviour
 
     private bool gaveScore = false;
 
+    public float timeRandomLine;
+    private float timeRandomLineActual;
+
+    public float randomTimeToVoiceLine;
+
+    public string[] randomVoiceLine;
+
+    private bool voiceLineTime = false;
+    private bool voiceLineNoAmmo = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -89,6 +99,10 @@ public class GameManager_Sorciere : MonoBehaviour
         GameManager.Instance.SetGameMode(gamemodes.Sorciere);
         GameManager.Instance.SetRunMode(runmodes.single);
         GameManager.Instance.AddGamesMade();
+
+        timeRandomLineActual = timeRandomLine + Random.Range(-randomTimeToVoiceLine, randomTimeToVoiceLine);
+
+        Debug.Log(timeRandomLineActual);
     }
 
     // Update is called once per frame
@@ -96,6 +110,19 @@ public class GameManager_Sorciere : MonoBehaviour
     {
         CDSpawnActualSoldier += Time.deltaTime;
         timeToSpawnBoss -= Time.deltaTime;
+
+        if (timeRandomLineActual > 0)
+        {
+            Debug.Log(timeRandomLineActual);
+            timeRandomLineActual -= Time.deltaTime;
+
+            if (timeRandomLineActual <= 0)
+            {
+                Debug.Log("Salut");
+                AudioManager.Instance.PlaySound(randomVoiceLine[Random.Range(0, randomVoiceLine.Length)]);
+                timeRandomLineActual = timeRandomLine + Random.Range(-randomTimeToVoiceLine, randomTimeToVoiceLine);
+            }
+        }
 
         if ((timeToSpawnBoss <= 0) && (bossIsSpawned == false))
         {
@@ -131,16 +158,29 @@ public class GameManager_Sorciere : MonoBehaviour
                 CDSpawnPriestActual += Time.deltaTime;
                 timeActual -= Time.deltaTime;
                 ShowTime();
+
+                if (timeActual <= 20 && voiceLineTime == false)
+                {
+                    AudioManager.Instance.PlaySound("Temps");
+                    voiceLineTime = true;
+                }
             }
         }
 
         if (shootStockActual <= 0)
         {
+            if (voiceLineNoAmmo == false)
+            {
+                AudioManager.Instance.PlaySound("Munitions");
+                voiceLineNoAmmo = true;
+            }
+
             rightHandNoStock.gameObject.SetActive(false);
         }
 
         if (shootStockActual > 0)
         {
+            voiceLineNoAmmo = true;
             var ps = rightHandNoStock.emission;
             ps.rateOverTime = shootStockActual;
             rightHandNoStock.gameObject.SetActive(true);
@@ -245,6 +285,7 @@ public class GameManager_Sorciere : MonoBehaviour
 
         if ((priestNumber <= 0) && (pauseAllowed == true))
         {
+            AudioManager.Instance.PlaySound("Figer");
             isPaused = true;
             timePausedActual = 0;
             pauseAllowed = false;

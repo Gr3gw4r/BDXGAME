@@ -38,6 +38,15 @@ public class GameManager_LG2 : MonoBehaviour
     public float multiplierScoreDuration;
     private float multiplierScoreDurationActual = 0;
 
+    public float timeRandomLine;
+    private float timeRandomLineActual;
+
+    public float randomTimeToVoiceLine;
+
+    public string[] randomVoiceLine;
+
+    private bool voiceLineTime = false;
+
     private void Awake()
     {
         if (Instance == null)
